@@ -1,0 +1,34 @@
+### lista de stocks - ok
+
+GET http://localhost:8080/api/stock
+
+
+### crear stock - ok
+
+POST http://localhost:8080/api/stock
+Content-Type: application/json
+
+{
+   "cantidad": 35,
+   "articuloId": "65919ce96ab2eb5e76783238",
+    "colorId": "6590ab6415646a0f4054c00e",
+    "talleId": "6590762e9f24c1fe7d5b8982"
+  
+
+}
+
+
+### eliminar stock- ok
+DELETE http://localhost:8080/api/stock/6591acf51a8cb9c47c431c17
+
+
+### actualizar stock - ok
+
+PATCH  http://localhost:8080/api/stock/6591ac721a8cb9c47c431c05
+Content-Type: application/json
+
+{
+    "colorId": "6591acdf1a8cb9c47c431c12"
+    
+   
+}

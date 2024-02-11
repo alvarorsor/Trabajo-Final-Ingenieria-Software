@@ -1,0 +1,32 @@
+### lista de talles - ok
+
+GET http://localhost:8080/api/talle
+
+
+### crear talle - ok
+
+POST http://localhost:8080/api/talle
+Content-Type: application/json
+
+{
+   "descripcion": "18",
+   "tipoTalleId": "659077f19f24c1fe7d5b8991"
+  
+   
+}
+
+
+### eliminar talle- ok
+DELETE http://localhost:8080/api/talle/659070e23db1955a1b894604
+
+
+### actualizar talle - ok
+
+PATCH  http://localhost:8080/api/talle/659070e23db1955a1b894604
+Content-Type: application/json
+
+{
+    "descripcion": "L",
+    "tipoTalleId": "65905deb3369af065e1f8f13"
+   
+}

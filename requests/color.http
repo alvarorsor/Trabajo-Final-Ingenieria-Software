@@ -1,0 +1,30 @@
+### lista de colors - ok
+
+GET http://localhost:8080/api/color
+
+
+### crear color - ok
+
+POST http://localhost:8080/api/color
+Content-Type: application/json
+
+{
+   "descripcion": "rojo"
+  
+   
+}
+
+
+### eliminar color- ok
+DELETE http://localhost:8080/api/color/658f624884b5a874558bec67
+
+
+### actualizar color - ok
+
+PATCH  http://localhost:8080/api/color/658f5229e2b77e7a1b87d542
+Content-Type: application/json
+
+{
+    "descripcion": ""
+   
+}

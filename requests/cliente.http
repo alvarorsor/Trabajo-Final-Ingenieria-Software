@@ -1,0 +1,30 @@
+### lista de clientes - ok
+
+GET http://localhost:8080/api/cliente
+
+
+### crear cliente - ok
+
+POST http://localhost:8080/api/cliente
+Content-Type: application/json
+
+{
+   "descripcion": "zapatillas deportivas"
+  
+   
+}
+
+
+### eliminar cliente- ok
+DELETE http://localhost:8080/api/cliente/658f624884b5a874558bec67
+
+
+### actualizar cliente - ok
+
+PATCH  http://localhost:8080/api/cliente/658f5229e2b77e7a1b87d542
+Content-Type: application/json
+
+{
+    "descripcion": "remeras"
+   
+}

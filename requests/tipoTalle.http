@@ -1,0 +1,30 @@
+### lista de tipoTalles - ok
+
+GET http://localhost:8080/api/tipoTalle
+
+
+### crear tipoTalle - ok
+
+POST http://localhost:8080/api/tipoTalle
+Content-Type: application/json
+
+{
+   "descripcion": "USA"
+  
+   
+}
+
+
+### eliminar tipoTalle- ok
+DELETE http://localhost:8080/api/tipoTalle/658f624884b5a874558bec67
+
+
+### actualizar tipoTalle - ok
+
+PATCH  http://localhost:8080/api/tipoTalle/658f5229e2b77e7a1b87d542
+Content-Type: application/json
+
+{
+    "descripcion": ""
+   
+}

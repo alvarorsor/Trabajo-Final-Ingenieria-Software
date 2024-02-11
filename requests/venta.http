@@ -1,0 +1,41 @@
+### lista de ventas - ok
+
+GET http://localhost:8080/api/venta
+
+
+### crear venta - ok
+
+POST http://localhost:8080/api/venta/crear-venta
+Content-Type: application/json
+
+{
+  
+   
+}
+
+POST http://localhost:8080/api/venta/introducir-articulo
+Content-Type: application/json
+
+{
+   "cantidad": ,
+   "stockId": ""
+    
+   
+}
+
+
+### eliminar venta- ok
+DELETE http://localhost:8080/api/venta/6589c8934814ac49e1216a51
+
+
+### actualizar venta - ok
+
+PATCH  http://localhost:8080/api/venta/65845904c300e2b9238bede8
+Content-Type: application/json
+
+{
+    "cantidad": ,
+   "stockId": ""
+    
+   
+}

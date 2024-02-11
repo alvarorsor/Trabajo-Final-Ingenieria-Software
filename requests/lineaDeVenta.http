@@ -1,0 +1,33 @@
+### lista de lineaDeVentas - ok
+
+GET http://localhost:8080/api/lineaDeVenta
+
+
+### crear lineaDeVenta - ok
+
+POST http://localhost:8080/api/lineaDeVenta
+Content-Type: application/json
+
+{
+   "cantidad": ,
+   "stockId": ""
+    
+   
+}
+
+
+### eliminar lineaDeVenta- ok
+DELETE http://localhost:8080/api/lineaDeVenta/6589c8934814ac49e1216a51
+
+
+### actualizar lineaDeVenta - ok
+
+PATCH  http://localhost:8080/api/lineaDeVenta/65845904c300e2b9238bede8
+Content-Type: application/json
+
+{
+    "cantidad": ,
+   "stockId": ""
+    
+   
+}

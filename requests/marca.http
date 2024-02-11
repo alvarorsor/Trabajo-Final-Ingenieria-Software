@@ -1,0 +1,30 @@
+### lista de marcas - ok
+
+GET http://localhost:8080/api/marca
+
+
+### crear marca - ok
+
+POST http://localhost:8080/api/marca
+Content-Type: application/json
+
+{
+   "descripcion": "fila"
+    
+   
+}
+
+
+### eliminar marca- ok
+DELETE http://localhost:8080/api/marca/6589c8934814ac49e1216a51
+
+
+### actualizar marca - ok
+
+PATCH  http://localhost:8080/api/marca/65845904c300e2b9238bede8
+Content-Type: application/json
+
+{
+    "descripcion": "iphones"
+   
+}

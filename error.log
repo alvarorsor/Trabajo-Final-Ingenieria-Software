@@ -1,0 +1,393 @@
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"categoriaId":{"kind":"required","message":"Path `categoriaId` is required.","name":"ValidatorError","path":"categoriaId","properties":{"message":"Path `categoriaId` is required.","path":"categoriaId","type":"required"}}},"level":"error","message":"Product validation failed: categoriaId: Path `categoriaId` is required.","name":"ValidationError","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","path":"Product","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"nombre":{"kind":"required","message":"Path `nombre` is required.","name":"ValidatorError","path":"nombre","properties":{"message":"Path `nombre` is required.","path":"nombre","type":"required"}}},"level":"error","message":"Categoria validation failed: nombre: Path `nombre` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"nombre":{"kind":"required","message":"Path `nombre` is required.","name":"ValidatorError","path":"nombre","properties":{"message":"Path `nombre` is required.","path":"nombre","type":"required"}}},"level":"error","message":"Categoria validation failed: nombre: Path `nombre` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"nombre":{"kind":"required","message":"Path `nombre` is required.","name":"ValidatorError","path":"nombre","properties":{"message":"Path `nombre` is required.","path":"nombre","type":"required"}}},"level":"error","message":"Categoria validation failed: nombre: Path `nombre` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"nombre":{"kind":"required","message":"Path `nombre` is required.","name":"ValidatorError","path":"nombre","properties":{"message":"Path `nombre` is required.","path":"nombre","type":"required"}}},"level":"error","message":"Categoria validation failed: nombre: Path `nombre` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"nombre":{"kind":"required","message":"Path `nombre` is required.","name":"ValidatorError","path":"nombre","properties":{"message":"Path `nombre` is required.","path":"nombre","type":"required"}}},"level":"error","message":"Categoria validation failed: nombre: Path `nombre` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Categoria validation failed","errors":{"fecha_creacion":{"kind":"date","message":"Cast to date failed for value \"Invalid Date\" (type Date) at path \"fecha_creacion\"","name":"CastError","path":"fecha_creacion","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"Invalid Date\"","value":null,"valueType":"Date"}},"level":"error","message":"Categoria validation failed: fecha_creacion: Cast to date failed for value \"Invalid Date\" (type Date) at path \"fecha_creacion\"","name":"ValidationError","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"nombre":1},"keyValue":{"nombre":"gorras"},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"nombre":1},"keyValue":{"nombre":"remeras"},"level":"error","service":"user-service"}
+{"_message":"Product validation failed","errors":{"stock":{"kind":"min","message":"Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidatorError","path":"stock","properties":{"message":"Path `stock` (-100) is less than minimum allowed value (0).","min":0,"path":"stock","type":"min","value":-100},"value":-100}},"level":"error","message":"Product validation failed: stock: Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"stock":{"kind":"min","message":"Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidatorError","path":"stock","properties":{"message":"Path `stock` (-100) is less than minimum allowed value (0).","min":0,"path":"stock","type":"min","value":-100},"value":-100}},"level":"error","message":"Product validation failed: stock: Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidationError","service":"user-service"}
+{"_message":"Product validation failed","errors":{"stock":{"kind":"min","message":"Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidatorError","path":"stock","properties":{"message":"Path `stock` (-100) is less than minimum allowed value (0).","min":0,"path":"stock","type":"min","value":-100},"value":-100}},"level":"error","message":"Product validation failed: stock: Path `stock` (-100) is less than minimum allowed value (0).","name":"ValidationError","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":"123456asd"},"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":"123456asf"},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":"123456asf"},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":"123456asf"},"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"codigo_barras":1},"keyValue":{"codigo_barras":null},"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"nombre":1},"keyValue":{"nombre":"adidas"},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripción":1},"keyValue":{"descripción":null},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripcion":1},"keyValue":{"descripcion":"USA"},"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","path":"stocks","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","message":{"messsage":"no se pudo conectar a mongo"},"service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"descripcion":1},"keyValue":{"descripcion":"fila"},"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","path":"LineaDeVenta","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","path":"LineaDeVenta","service":"user-service"}
+{"level":"error","path":"LineaDeVenta","service":"user-service"}
+{"level":"error","path":"LineaDeVenta","service":"user-service"}
+{"level":"error","path":"LineaDeVenta","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","path":"stock","service":"user-service"}
+{"level":"error","path":"stock","service":"user-service"}
+{"level":"error","path":"talle","service":"user-service"}
+{"level":"error","path":"talle","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","message":{"messsage":"no se pudo conectar a mongo"},"service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"kind":"ObjectId","message":"Cast to ObjectId failed for value \"65a41752c5280400044cc81\" (type string) at path \"_id\" for model \"Venta\"","name":"CastError","path":"_id","reason":{},"stringValue":"\"65a41752c5280400044cc81\"","value":"65a41752c5280400044cc81","valueType":"string"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"_message":"LineaDeVenta validation failed","errors":{"subTotal":{"kind":"Number","message":"Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"CastError","path":"subTotal","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"NaN\"","value":null,"valueType":"number"}},"level":"error","message":"LineaDeVenta validation failed: subTotal: Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"ValidationError","service":"user-service"}
+{"_message":"LineaDeVenta validation failed","errors":{"subTotal":{"kind":"Number","message":"Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"CastError","path":"subTotal","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"NaN\"","value":null,"valueType":"number"}},"level":"error","message":"LineaDeVenta validation failed: subTotal: Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"ValidationError","service":"user-service"}
+{"_message":"LineaDeVenta validation failed","errors":{"subTotal":{"kind":"Number","message":"Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"CastError","path":"subTotal","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"NaN\"","value":null,"valueType":"number"}},"level":"error","message":"LineaDeVenta validation failed: subTotal: Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"ValidationError","service":"user-service"}
+{"_message":"LineaDeVenta validation failed","errors":{"subTotal":{"kind":"Number","message":"Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"CastError","path":"subTotal","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"NaN\"","value":null,"valueType":"number"}},"level":"error","message":"LineaDeVenta validation failed: subTotal: Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"ValidationError","service":"user-service"}
+{"_message":"LineaDeVenta validation failed","errors":{"subTotal":{"kind":"Number","message":"Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"CastError","path":"subTotal","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"NaN\"","value":null,"valueType":"number"}},"level":"error","message":"LineaDeVenta validation failed: subTotal: Cast to Number failed for value \"NaN\" (type number) at path \"subTotal\"","name":"ValidationError","service":"user-service"}
+{"_message":"Venta validation failed","errors":{"tipoComprobante":{"kind":"required","message":"Path `tipoComprobante` is required.","name":"ValidatorError","path":"tipoComprobante","properties":{"message":"Path `tipoComprobante` is required.","path":"tipoComprobante","type":"required"}}},"level":"error","message":"Venta validation failed: tipoComprobante: Path `tipoComprobante` is required.","name":"ValidationError","service":"user-service"}
+{"_message":"Venta validation failed","errors":{"tipoComprobante":{"kind":"required","message":"Path `tipoComprobante` is required.","name":"ValidatorError","path":"tipoComprobante","properties":{"message":"Path `tipoComprobante` is required.","path":"tipoComprobante","type":"required"}}},"level":"error","message":"Venta validation failed: tipoComprobante: Path `tipoComprobante` is required.","name":"ValidationError","service":"user-service"}
+{"level":"error","path":"cliente.nombre,","service":"user-service"}
+{"level":"error","path":"cliente.nombre,","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"telefono":1},"keyValue":{"telefono":123456},"level":"error","service":"user-service"}
+{"code":11000,"index":0,"keyPattern":{"telefono":1},"keyValue":{"telefono":123456},"level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","path":"lineasDeVenta","service":"user-service"}
+{"level":"error","path":"cliente.direccion","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"errors":[{"instance":{"createdAt":"2024-01-23T03:58:27.985Z","descripcion":{"descripcion":"zapatillas deportivas"},"id":null,"updatedAt":"2024-01-23T03:58:27.985Z"},"message":"descripcion cannot be an array or an object","origin":"CORE","path":"descripcion","type":"string violation","validatorArgs":[],"validatorKey":"not_a_string","validatorName":null,"value":{"descripcion":"zapatillas deportivas"}}],"level":"error","name":"SequelizeValidationError","service":"user-service"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-23 03:59:13","2024-01-23 03:59:13"],"sql":"INSERT INTO `Categoria` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-23 03:59:13","2024-01-23 03:59:13"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-23 03:59:13","2024-01-23 03:59:13"],"sql":"INSERT INTO `Categoria` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Categoria` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"errors":[{"instance":{"createdAt":"2024-01-23T03:59:30.467Z","descripcion":{"descripcion":"zapatillas deportivas"},"id":null,"updatedAt":"2024-01-23T03:59:30.467Z"},"message":"descripcion cannot be an array or an object","origin":"CORE","path":"descripcion","type":"string violation","validatorArgs":[],"validatorKey":"not_a_string","validatorName":null,"value":{"descripcion":"zapatillas deportivas"}}],"level":"error","name":"SequelizeValidationError","service":"user-service"}
+{"errors":[{"instance":{"createdAt":"2024-01-23T03:59:33.437Z","descripcion":{"descripcion":"zapatillas deportivas"},"id":null,"updatedAt":"2024-01-23T03:59:33.437Z"},"message":"descripcion cannot be an array or an object","origin":"CORE","path":"descripcion","type":"string violation","validatorArgs":[],"validatorKey":"not_a_string","validatorName":null,"value":{"descripcion":"zapatillas deportivas"}}],"level":"error","name":"SequelizeValidationError","service":"user-service"}
+{"errors":[{"instance":{"createdAt":"2024-01-23T04:00:49.245Z","descripcion":{"descripcion":"zapatillas deportivas"},"id":null,"updatedAt":"2024-01-23T04:00:49.245Z"},"message":"descripcion cannot be an array or an object","origin":"CORE","path":"descripcion","type":"string violation","validatorArgs":[],"validatorKey":"not_a_string","validatorName":null,"value":{"descripcion":"zapatillas deportivas"}}],"level":"error","name":"SequelizeValidationError","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:10","2024-01-23 20:06:10","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:10","2024-01-23 20:06:10","1","2"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:10","2024-01-23 20:06:10","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:17","2024-01-23 20:06:17","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:17","2024-01-23 20:06:17","1","2"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:17","2024-01-23 20:06:17","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:44","2024-01-23 20:06:44",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:44","2024-01-23 20:06:44",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:44","2024-01-23 20:06:44",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:46","2024-01-23 20:06:46",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:46","2024-01-23 20:06:46",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:06:46","2024-01-23 20:06:46",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[1234,"running max",30000,0.2,"2024-01-23 20:09:06","2024-01-23 20:09:06"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`descripcion`,`costo`,`margen_ganancia`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'marcaId' doesn't have a default value","sqlState":"HY000"},"parameters":[1234,"running max",30000,0.2,"2024-01-23 20:09:06","2024-01-23 20:09:06"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[1234,"running max",30000,0.2,"2024-01-23 20:09:06","2024-01-23 20:09:06"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`descripcion`,`costo`,`margen_ganancia`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'marcaId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`descripcion`,`costo`,`margen_ganancia`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:14:47","2024-01-23 20:14:47"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:14:47","2024-01-23 20:14:47"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:14:47","2024-01-23 20:14:47"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:15:11","2024-01-23 20:15:11"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:15:11","2024-01-23 20:15:11"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:15:11","2024-01-23 20:15:11"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:27","2024-01-23 20:16:27",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:27","2024-01-23 20:16:27",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:27","2024-01-23 20:16:27",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:41","2024-01-23 20:16:41","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:41","2024-01-23 20:16:41","1","2"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:16:41","2024-01-23 20:16:41","1","2"],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:17:27","2024-01-23 20:17:27",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 20:17:27","2024-01-23 20:17:27",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 20:17:27","2024-01-23 20:17:27",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:26:51","2024-01-23 21:26:51",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:26:51","2024-01-23 21:26:51",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:26:51","2024-01-23 21:26:51",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:25","2024-01-23 21:28:25",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:25","2024-01-23 21:28:25",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:25","2024-01-23 21:28:25",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:30","2024-01-23 21:28:30",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:30","2024-01-23 21:28:30",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:28:30","2024-01-23 21:28:30",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:29:26","2024-01-23 21:29:26",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:29:26","2024-01-23 21:29:26",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:29:26","2024-01-23 21:29:26",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:32:50","2024-01-23 21:32:50",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:32:50","2024-01-23 21:32:50",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:32:50","2024-01-23 21:32:50",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:03","2024-01-23 21:33:03",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:03","2024-01-23 21:33:03",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:03","2024-01-23 21:33:03",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:06","2024-01-23 21:33:06",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:06","2024-01-23 21:33:06",1,2],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["[object Object]",null,null,null,"2024-01-23 21:33:06","2024-01-23 21:33:06",1,2],"sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Articulos` (`id`,`codigo`,`neto_gravado`,`precio_venta`,`IVA`,`createdAt`,`updatedAt`,`marcaId`,`categoriaId`) VALUES (DEFAULT,?,?,?,?,?,?,?,?);"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"fields":["categoriaId"],"index":"Articulos_categoriaId_foreign_idx","level":"error","name":"SequelizeForeignKeyConstraintError","original":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"parameters":{},"parent":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"reltype":"parent","service":"user-service","sql":"DELETE FROM `Categorias` WHERE `id` = '2'","table":"categorias"}
+{"fields":["categoriaId"],"index":"Articulos_categoriaId_foreign_idx","level":"error","name":"SequelizeForeignKeyConstraintError","original":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"parameters":{},"parent":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"reltype":"parent","service":"user-service","sql":"DELETE FROM `Categorias` WHERE `id` = '2'","table":"categorias"}
+{"fields":["categoriaId"],"index":"Articulos_categoriaId_foreign_idx","level":"error","name":"SequelizeForeignKeyConstraintError","original":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"parameters":{},"parent":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Categorias` WHERE `id` = '2'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_categoriaId_foreign_idx` FOREIGN KEY (`categoriaId`) REFERENCES `categorias` (`id`))","sqlState":"23000"},"reltype":"parent","service":"user-service","sql":"DELETE FROM `Categorias` WHERE `id` = '2'","table":"categorias"}
+{"fields":["marcaId"],"index":"Articulos_marcaId_foreign_idx","level":"error","name":"SequelizeForeignKeyConstraintError","original":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Marcas` WHERE `id` = '1'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_marcaId_foreign_idx` FOREIGN KEY (`marcaId`) REFERENCES `marcas` (`id`))","sqlState":"23000"},"parameters":{},"parent":{"code":"ER_ROW_IS_REFERENCED_2","errno":1451,"sql":"DELETE FROM `Marcas` WHERE `id` = '1'","sqlMessage":"Cannot delete or update a parent row: a foreign key constraint fails (`tfi-software`.`articulos`, CONSTRAINT `Articulos_marcaId_foreign_idx` FOREIGN KEY (`marcaId`) REFERENCES `marcas` (`id`))","sqlState":"23000"},"reltype":"parent","service":"user-service","sql":"DELETE FROM `Marcas` WHERE `id` = '1'","table":"marcas"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[42,"2024-01-24 18:13:26","2024-01-24 18:13:26"],"sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'tipoTalleId' doesn't have a default value","sqlState":"HY000"},"parameters":[42,"2024-01-24 18:13:26","2024-01-24 18:13:26"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[42,"2024-01-24 18:13:26","2024-01-24 18:13:26"],"sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'tipoTalleId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[42,"2024-01-24 18:13:30","2024-01-24 18:13:30"],"sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'tipoTalleId' doesn't have a default value","sqlState":"HY000"},"parameters":[42,"2024-01-24 18:13:30","2024-01-24 18:13:30"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":[42,"2024-01-24 18:13:30","2024-01-24 18:13:30"],"sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'tipoTalleId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Talles` (`id`,`descripcion`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"errors":[{"instance":{"createdAt":"2024-01-24T18:14:57.129Z","descripcion":{"descripcion":42},"id":null,"tipoTalleId":1,"updatedAt":"2024-01-24T18:14:57.129Z"},"message":"descripcion cannot be an array or an object","origin":"CORE","path":"descripcion","type":"string violation","validatorArgs":[],"validatorKey":"not_a_string","validatorName":null,"value":{"descripcion":42}}],"level":"error","name":"SequelizeValidationError","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-26 18:15:59","2024-01-26 18:15:59"],"sql":"INSERT INTO `CondicionesTributarias` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-26 18:15:59","2024-01-26 18:15:59"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-26 18:15:59","2024-01-26 18:15:59"],"sql":"INSERT INTO `CondicionesTributarias` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'descripcion' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `CondicionesTributarias` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","service":"user-service"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:23:54","2024-01-26 18:23:54",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:23:54","2024-01-26 18:23:54",2],"parent":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:23:54","2024-01-26 18:23:54",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"service":"user-service","sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:24:03","2024-01-26 18:24:03",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:24:03","2024-01-26 18:24:03",2],"parent":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:24:03","2024-01-26 18:24:03",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"service":"user-service","sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:25:36","2024-01-26 18:25:36",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:25:36","2024-01-26 18:25:36",2],"parent":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:25:36","2024-01-26 18:25:36",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"service":"user-service","sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:26:44","2024-01-26 18:26:44",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:26:44","2024-01-26 18:26:44",2],"parent":{"code":"ER_WARN_DATA_OUT_OF_RANGE","errno":1264,"parameters":["jorge","perez","av alem 22",23395724509,"2024-01-26 18:26:44","2024-01-26 18:26:44",2],"sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);","sqlMessage":"Out of range value for column 'CUIT' at row 1","sqlState":"22003"},"service":"user-service","sql":"INSERT INTO `Clientes` (`id`,`nombre`,`apellido`,`domicilio`,`CUIT`,`createdAt`,`updatedAt`,`condicionTributariaId`) VALUES (DEFAULT,?,?,?,?,?,?,?);"}
+{"level":"error","service":"user-service"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:12:16","2024-01-27 01:12:16"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:12:16","2024-01-27 01:12:16"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:12:16","2024-01-27 01:12:16"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:13:28","2024-01-27 01:13:28"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:13:28","2024-01-27 01:13:28"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:13:28","2024-01-27 01:13:28"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:13:29","2024-01-27 01:13:29"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:13:29","2024-01-27 01:13:29"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:13:29","2024-01-27 01:13:29"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:14:05","2024-01-27 01:14:05","2024-01-27 01:14:05"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:14:05","2024-01-27 01:14:05","2024-01-27 01:14:05"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:14:05","2024-01-27 01:14:05","2024-01-27 01:14:05"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:14:07","2024-01-27 01:14:07","2024-01-27 01:14:07"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:14:07","2024-01-27 01:14:07","2024-01-27 01:14:07"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:14:07","2024-01-27 01:14:07","2024-01-27 01:14:07"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:15:07","2024-01-27 01:15:07","2024-01-27 01:15:07"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:15:07","2024-01-27 01:15:07","2024-01-27 01:15:07"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:15:07","2024-01-27 01:15:07","2024-01-27 01:15:07"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:01","2024-01-27 01:17:01"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:01","2024-01-27 01:17:01"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:01","2024-01-27 01:17:01"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:02","2024-01-27 01:17:02"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:02","2024-01-27 01:17:02"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-02 00:00:00","2024-01-27 01:17:02","2024-01-27 01:17:02"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:21:42","2024-01-27 01:21:42"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:21:42","2024-01-27 01:21:42"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:21:42","2024-01-27 01:21:42"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:21:44","2024-01-27 01:21:44"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:21:44","2024-01-27 01:21:44"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:21:44","2024-01-27 01:21:44"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:23:34","2024-01-27 01:23:34"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:23:34","2024-01-27 01:23:34"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:23:34","2024-01-27 01:23:34"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:23:47","2024-01-27 01:23:47"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:23:47","2024-01-27 01:23:47"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:23:47","2024-01-27 01:23:47"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_BAD_NULL_ERROR","errno":1048,"parameters":[null,null,"2024-01-27 01:25:11","2024-01-27 01:25:11"],"sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);","sqlMessage":"Column 'clienteId' cannot be null","sqlState":"23000"},"parameters":[null,null,"2024-01-27 01:25:11","2024-01-27 01:25:11"],"parent":{"code":"ER_BAD_NULL_ERROR","errno":1048,"parameters":[null,null,"2024-01-27 01:25:11","2024-01-27 01:25:11"],"sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);","sqlMessage":"Column 'clienteId' cannot be null","sqlState":"23000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_BAD_NULL_ERROR","errno":1048,"parameters":[null,null,"2024-01-27 01:25:12","2024-01-27 01:25:12"],"sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);","sqlMessage":"Column 'clienteId' cannot be null","sqlState":"23000"},"parameters":[null,null,"2024-01-27 01:25:12","2024-01-27 01:25:12"],"parent":{"code":"ER_BAD_NULL_ERROR","errno":1048,"parameters":[null,null,"2024-01-27 01:25:12","2024-01-27 01:25:12"],"sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);","sqlMessage":"Column 'clienteId' cannot be null","sqlState":"23000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`clienteId`,`pagoId`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:30:07","2024-01-27 01:30:07"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:30:07","2024-01-27 01:30:07"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:30:07","2024-01-27 01:30:07"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:30:10","2024-01-27 01:30:10"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:30:10","2024-01-27 01:30:10"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:30:10","2024-01-27 01:30:10"],"sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:31:17","2024-01-27 01:31:17","2024-01-27 01:31:17"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-27 01:31:17","2024-01-27 01:31:17","2024-01-27 01:31:17"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-27 01:31:17","2024-01-27 01:31:17","2024-01-27 01:31:17"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","name":"SequelizeDatabaseError","original":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-01 00:00:00","2024-01-27 01:31:39","2024-01-27 01:31:39"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"parameters":["2024-01-01 00:00:00","2024-01-27 01:31:39","2024-01-27 01:31:39"],"parent":{"code":"ER_NO_DEFAULT_FOR_FIELD","errno":1364,"parameters":["2024-01-01 00:00:00","2024-01-27 01:31:39","2024-01-27 01:31:39"],"sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);","sqlMessage":"Field 'clienteId' doesn't have a default value","sqlState":"HY000"},"service":"user-service","sql":"INSERT INTO `Ventas` (`id`,`fecha`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?);"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}
+{"level":"error","service":"user-service"}

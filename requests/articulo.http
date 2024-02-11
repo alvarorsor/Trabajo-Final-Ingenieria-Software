@@ -1,0 +1,32 @@
+### lista de articulos - ok
+
+GET http://localhost:3000/api/articulo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzdWFyaW8xIiwicm9sZSI6IkFETUlOSVNUUkFUSVZPIiwiaWF0IjoxNzA2NTAyMDYwLCJleHAiOjE3MDY1MDU2NjB9.OtDw5ldxxv5QOyaZL0KeqaNbdo6gkkotdU8nhqkj0-w
+
+### crear articulo - ok
+
+POST http://localhost:8080/api/articulo
+Content-Type: application/json
+
+{
+   "descripcion": "fila pro max",
+    "categoriaId": "6590ab2c15646a0f4054bffc",
+    "marcaId": "65919cda6ab2eb5e76783234"
+ 
+   
+}
+
+
+### eliminar articulo- ok
+DELETE http://localhost:8080/api/articulo/658f53ad54dea17da8ebf192
+
+
+### actualizar articulo - ok
+
+PATCH  http://localhost:8080/api/articulo/658f612314279338808e52a4
+Content-Type: application/json
+
+{
+    "descripcion": "iphones"
+   
+}

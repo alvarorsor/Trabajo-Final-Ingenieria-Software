@@ -1,0 +1,30 @@
+### lista de categorias - ok
+
+GET http://localhost:8080/api/categoria
+
+
+### crear categoria - ok
+
+POST http://localhost:8080/api/categoria
+Content-Type: application/json
+
+{
+   "descripcion": "zapatillas deportivas"
+  
+   
+}
+
+
+### eliminar categoria- ok
+DELETE http://localhost:8080/api/categoria/658f624884b5a874558bec67
+
+
+### actualizar categoria - ok
+
+PATCH  http://localhost:8080/api/categoria/658f5229e2b77e7a1b87d542
+Content-Type: application/json
+
+{
+    "descripcion": "remeras"
+   
+}

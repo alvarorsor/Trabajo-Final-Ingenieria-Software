@@ -1,0 +1,22 @@
+{"level":"info","message":{"__v":0,"_id":"6585ae1874da419b8a926ebb","nombre":"iphones","products":[]},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6585af4e8655455f6b8f7ece","nombre":"iphones","products":[]},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6589c8efa1db7e18fbb0c1f0","fecha_creacion":"2023-12-25T18:23:58.865Z","nombre":"tablets","products":[]},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6589c8dfa1db7e18fbb0c1ec","fecha_creacion":"2023-12-25T18:23:58.865Z","nombre":"tablets","products":[]},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6589c8934814ac49e1216a51","fecha_creacion":"2023-12-25T18:23:02.678Z","nombre":"tablets","products":[]},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6589cebf9d44dc6ea2ad86c7","fecha_creacion":"1992-08-15T03:00:00.000Z","nombre":"gorras","products":[],"publicUUID":{"data":[34,12,196,198,48,124,75,18,187,207,97,7,127,249,47,80],"type":"Buffer"}},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6589df3d9d44dc6ea2ad86cb","fecha_creacion":"1992-08-15T03:00:00.000Z","nombre":"remeras","products":[],"publicUUID":{"data":[17,190,246,217,236,231,65,64,131,172,150,61,167,186,99,105],"type":"Buffer"}},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"658f612314279338808e52a4","codigo_barras":"123456asw"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"658f605314279338808e529a","codigo_barras":"123456asf"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"658f53ad54dea17da8ebf192","codigo_barras":"123456asd"},"service":"user-service"}
+{"level":"info","message":{"__v":12,"_id":"658f624884b5a874558bec67","articulos":["658f62d7396809c19dc16f0c","658f62db396809c19dc16f11","658f62dc396809c19dc16f15","658f62dd396809c19dc16f19","658f62de396809c19dc16f1d","658f63100afffb8877a4c014","658f63120afffb8877a4c018","658f636cce3c0c328382e44a","658f6371ce3c0c328382e44e","658f63a8f86ed28bb26abbfe","658f63c2f86ed28bb26abc02","658f63e9f86ed28bb26abc06"],"nombre":"zapatillas"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"659070e23db1955a1b894604","descripcion":"L"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6591ab8518a0655ee2b77a9e","articulo":"65919ce96ab2eb5e76783238","cantidad":35,"color":"6590ab6415646a0f4054c00e","talle":"6590762e9f24c1fe7d5b8982"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6591abf2aa5faf89e0a1d99f","articulo":"65919ce96ab2eb5e76783238","cantidad":35,"color":"6590ab6415646a0f4054c00e","talle":"6590762e9f24c1fe7d5b8982"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6591acf51a8cb9c47c431c17","articulo":"65919ce96ab2eb5e76783238","cantidad":35,"color":"6590ab6415646a0f4054c00e","talle":"6590762e9f24c1fe7d5b8982"},"service":"user-service"}
+{"level":"info","message":{"__v":0,"_id":"6594820b1aea8d9c87aaa39e","articulo":"659481ef1aea8d9c87aaa390","cantidad":35,"color":"6590ab6415646a0f4054c00e","talle":"659076499f24c1fe7d5b898a"},"service":"user-service"}
+{"level":"info","message":{"createdAt":"2024-01-23T20:03:17.000Z","descripcion":"camisetas deportivas","id":1,"updatedAt":"2024-01-23T20:03:17.000Z"},"service":"user-service"}
+{"level":"info","message":{"createdAt":"2024-01-23T20:03:00.000Z","descripcion":"adidas","id":2,"updatedAt":"2024-01-23T20:03:00.000Z"},"service":"user-service"}
+{"level":"info","message":{"createdAt":"2024-01-24T18:16:07.000Z","descripcion":"35","id":3,"tipoTalleId":1,"updatedAt":"2024-01-24T21:06:46.000Z"},"service":"user-service"}
+{"level":"info","message":{"createdAt":"2024-01-24T18:16:04.000Z","descripcion":"41","id":2,"tipoTalleId":1,"updatedAt":"2024-01-24T18:16:04.000Z"},"service":"user-service"}
+{"level":"info","message":{"articuloId":3,"cantidad":30,"colorId":2,"createdAt":"2024-01-26T17:48:59.000Z","id":1,"talleId":2,"updatedAt":"2024-01-26T17:50:59.000Z"},"service":"user-service"}
+{"level":"info","message":{"CUIT":23,"apellido":"perez","condicionTributariaId":2,"createdAt":"2024-01-26T18:27:07.000Z","domicilio":"av alem 22","id":1,"nombre":"jorge","updatedAt":"2024-01-26T18:27:07.000Z"},"service":"user-service"}
