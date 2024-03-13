@@ -1,0 +1,2571 @@
+{
+	"info": {
+		"_postman_id": "5928446d-8813-4bbf-8332-6ec914dff6fa",
+		"name": "TFI-SOFTWARE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24275282"
+	},
+	"item": [
+		{
+			"name": "articulo",
+			"item": [
+				{
+					"name": "Get all articulos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/articulo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"articulo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create articulo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigo\": 100,\r\n    \"descripcion\": \"air max pro\",\r\n    \"costo\": 50000,\r\n    \"margen_ganancia\": 1.20,\r\n    \"categoriaId\": 2,\r\n    \"marcaId\": 1\r\n    \r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/articulo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"articulo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get articulo by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/articulo/:codigo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"articulo",
+								":codigo"
+							],
+							"variable": [
+								{
+									"key": "codigo",
+									"value": "23232"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete articulo by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/articulo/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"articulo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch articulo by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"adidas trail running\",\r\n    \"codigo\": 2323,\r\n    \"costo\": 90000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/articulo/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"articulo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoria",
+			"item": [
+				{
+					"name": "Get all categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create categoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"zapatillas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get categoria by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/categoria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"categoria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete categoria by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/categoria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"categoria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch categoria by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"zapatillas deportivas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/categoria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"categoria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "color",
+			"item": [
+				{
+					"name": "Get all colores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/color",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create color",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"rojo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/color",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"color"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get color by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/color/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"color",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete color by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/color/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"color",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch color by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/color/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"color",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "marca",
+			"item": [
+				{
+					"name": "Get all marcas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create marca",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"adidas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/marca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"marca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get marca by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/marca/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"marca",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete marca by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/marca/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"marca",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch marca by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"adidas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/marca/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"marca",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "stock",
+			"item": [
+				{
+					"name": "Get all stocks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \r\n            \"cantidad\": 30,\r\n            \"sucursalId\": 1,\r\n            \"colorId\": 2,\r\n            \"talleId\": 2,\r\n            \"articuloId\": 3\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create stock",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \r\n            \"cantidad\": 30,\r\n            \"sucursalId\": 2,\r\n            \"colorId\": 3,\r\n            \"talleId\": 1,\r\n            \"articuloId\": 3\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get stock by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/stock/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"stock",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete stock by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/stock/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"stock",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch stock by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sucursalId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/stock/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"stock",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "talle",
+			"item": [
+				{
+					"name": "Get all talles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/talle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"talle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create talle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": 40,\r\n    \"tipoTalleId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/talle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"talle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get talle by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/talle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"talle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete talle by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/talle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"talle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch talle by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": 35\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/talle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"talle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tipoTalle",
+			"item": [
+				{
+					"name": "Get all tipoTalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/tipoTalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"tipoTalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create tipoTalle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"americano\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/tipoTalle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"tipoTalle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get tipoTalle by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/tipoTalle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"tipoTalle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete tipoTalle by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/tipoTalle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"tipoTalle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch tipoTalle by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"EEUU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/tipoTalle/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"tipoTalle",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "lineaDeArticulo",
+			"item": [
+				{
+					"name": "Get all lineasDeArticulo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeArticulo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeArticulo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar linea de venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"talleId\": 1,\r\n    \"colorId\": 3,\r\n    \"articuloId\": 3,\r\n    \"cantidad\": 3,\r\n    \"ventaId\":22\r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeArticulo/agregar-linea-venta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeArticulo",
+								"agregar-linea-venta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get lineaDeVenta by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeVenta/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeVenta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "122"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete lineaDeVenta by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineaDeArticuloId\": 48,\r\n    \"devolucionId\": 13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeArticulo/eliminar-linea-devolucion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeArticulo",
+								"eliminar-linea-devolucion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch lineaDeVenta by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lineaDeVentaId\": \"65a45eae16d430981e4dedce\",\r\n    \"ventaId\": \"65a45e5116d430981e4dedb6\",\r\n    \"cantidad\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeVenta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeVenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar linea devolucion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"colorId\": 3,\r\n            \"talleId\": 1,\r\n            \"articuloId\": 3,\r\n    \"devolucionId\":13\r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeArticulo/agregar-devolucion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeArticulo",
+								"agregar-devolucion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar linea cambio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"colorId\": 1,\r\n            \"talleId\": 2,\r\n            \"articuloId\": 4,\r\n    \"devolucionId\":13\r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/lineaDeArticulo/agregar-cambio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"lineaDeArticulo",
+								"agregar-cambio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "venta",
+			"item": [
+				{
+					"name": "Get all ventas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/crear-venta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								"crear-venta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete venta by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch venta by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"lineasDeVenta\": \"65a1d83eb81e39797fa35f9b\",\r\n\"cantidad\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65a1d83bb81e39797fa35f94"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get venta by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "65a81b6bdf53c6a502d5afc8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finalizar venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/finalizar-venta?tipoPago=TARJETA&token=27afb234-17c8-46ac-afc5-bfc9ba5ecb99&ventaId=22",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								"finalizar-venta"
+							],
+							"query": [
+								{
+									"key": "tipoPago",
+									"value": "TARJETA"
+								},
+								{
+									"key": "token",
+									"value": "27afb234-17c8-46ac-afc5-bfc9ba5ecb99"
+								},
+								{
+									"key": "ventaId",
+									"value": "22"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ingresar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"clienteId\": 2,\r\n        \"ventaId\":22\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/venta/ingresar-cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"venta",
+								"ingresar-cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "Get all clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"lopez\",\r\n    \"domicilio\": \"av alem 512\",\r\n    \"CUIT\": 23395674567,\r\n    \"condicionTributariaId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete cliente by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/cliente/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"cliente",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch cliente by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/cliente/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"cliente",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get cliente by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/cliente/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"cliente",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "devolucion",
+			"item": [
+				{
+					"name": "Create devolucion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/crear-devolucion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"crear-devolucion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get devolucion by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete devolucion by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch devolucion by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ingresar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clienteId\": 2,\r\n    \"devolucionId\":13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/ingresar-cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"ingresar-cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finalizar devolucion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoPago\": \"efectivo\",\r\n    \"devolucionId\":13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/finalizar-devolucion",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"finalizar-devolucion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "condicionTributaria",
+			"item": [
+				{
+					"name": "Create condicionTributaria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"CONSUMIDOR FINAL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/condicionTributaria/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"condicionTributaria",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get condicionTributaria by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/condicionTributaria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"condicionTributaria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all condicionesTributarias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/condicionTributaria/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"condicionTributaria",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete condicionTributaria by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/condicionTributaria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"condicionTributaria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch condicionTributaria by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/condicionTributaria/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"condicionTributaria",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "usuario",
+			"item": [
+				{
+					"name": "registrar administrativo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "alvarovendedor",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123asd",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "alvaro",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "reinoso",
+									"type": "text"
+								},
+								{
+									"key": "legajo",
+									"value": "42302",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/auth/local/registrar-administrativo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"auth",
+								"local",
+								"registrar-administrativo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registrar vendedor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "vendedor2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123asd",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "carlos",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "reinoso",
+									"type": "text"
+								},
+								{
+									"key": "legajo",
+									"value": "42305",
+									"type": "text"
+								},
+								{
+									"key": "puntoDeVentaId",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/auth/local/registrar-vendedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"auth",
+								"local",
+								"registrar-vendedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iniciar sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "vendedor2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123asd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/auth/local/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"auth",
+								"local",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cerrar sesion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "detele usuario by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/user/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch usuario by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/user/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sucursal",
+			"item": [
+				{
+					"name": "get all sucursales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/sucursal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"sucursal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new sucursal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"direccion\": \"laprida 611\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/sucursal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"sucursal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sucursal by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/sucursal/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"sucursal",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete sucursal by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/sucursal/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"sucursal",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch sucursal by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/sucursal/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"sucursal",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PDV",
+			"item": [
+				{
+					"name": "get all pdv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/PDV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"PDV"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new pdv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numero\": 4,\r\n    \"sucursalId\": 2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/PDV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"PDV"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get PDVby id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/PDV/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"PDV",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete PDVby id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/PDV/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"PDV",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch PDVby id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/PDV/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"PDV",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vendedor",
+			"item": [
+				{
+					"name": "get all vendedores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/vendedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"vendedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new vendedor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"fernando\",\r\n    \"apellido\": \"parrado\",\r\n    \"legajo\": 264,\r\n    \"puntoDeVentaId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/vendedor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"vendedor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get vendedor by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/vendedor/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"vendedor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete vendedor by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/vendedor/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"vendedor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch vendedor by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/devolucion/vendedor/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"devolucion",
+								"vendedor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pagos",
+			"item": [
+				{
+					"name": "autorizar pago tarjeta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PUERTO}}/api/payment/autorizar-pago-tarjeta?token=c88e7b3f-bf45-43f8-aaa8-586774b086d2&amount=1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PUERTO}}",
+							"path": [
+								"api",
+								"payment",
+								"autorizar-pago-tarjeta"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "c88e7b3f-bf45-43f8-aaa8-586774b086d2"
+								},
+								{
+									"key": "amount",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

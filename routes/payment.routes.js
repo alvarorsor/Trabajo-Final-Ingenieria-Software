@@ -16,7 +16,7 @@ paymentRouter.post("/autorizar-pago-tarjeta", async (req, res) => {
 
         // Construir el cuerpo de la solicitud a la siguiente dirección
         const requestBody = {
-            site_transaction_id: "100",
+            site_transaction_id: "132",
             payment_method_id: 1,
             token,
             bin: "450799",
@@ -50,7 +50,7 @@ paymentRouter.post("/autorizar-pago-tarjeta", async (req, res) => {
         // Verificar si la solicitud fue exitosa
         if (response.ok) {
 
-                
+
 
 
 

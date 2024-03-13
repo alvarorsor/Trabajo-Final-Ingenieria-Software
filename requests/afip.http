@@ -1,0 +1,19 @@
+### crear articulo - ok
+
+POST http://istp1service.azurewebsites.net/LoginService.svc
+Content-Type: text/xml
+
+
+
+   <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ist="http://ISTP1.Service.Contracts.Service" xmlns:sge="http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data">
+<soapenv:Header/>
+<soapenv:Body>
+<ist:SolicitarAutorizacion>
+<sge:codigo>
+A32747FF-FF5A-4007-BBEC-1BDC54C24DCB
+</sge:codigo>
+</ist:SolicitarAutorizacion>
+</soapenv:Body>
+</soapenv:Envelope>
+ 
+   

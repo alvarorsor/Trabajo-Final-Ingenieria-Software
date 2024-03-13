@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true, // Modificado para permitir valores nulos
     },
+    pagoTarjetaId: {
+      type: DataTypes.INTEGER,
+      allowNull: true, // Modificado para permitir valores nulos
+    },
     nroComprobante: {
       type: DataTypes.STRING,
       allowNull: true, // Modificado para permitir valores nulos

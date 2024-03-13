@@ -4,8 +4,9 @@ const apicache = require('apicache')
 const {makeSuccessResponse} = require('../utils/response.utils')
 const {makeErrorResponse} = require('../utils/response.utils')
 const mongoose = require('mongoose')
-
-
+const fetch = require('node-fetch')
+const express = require("express")
+const { stringify } = require('uuid')
 
 
 const createVenta = async (req, res, next) => {
@@ -190,7 +191,8 @@ const finalizarVenta = async (req, res, next) => {
  
   
 
-  const { tipoPago, ventaId } = req.body
+  const { tipoPago, token , ventaId } = req.query
+
 
  
  // Iniciar una transacción
@@ -213,6 +215,10 @@ const finalizarVenta = async (req, res, next) => {
       await t.rollback();
       return res.status(404).json(makeErrorResponse(['La venta ya se encuentra finalizada.']));
     }
+
+    
+
+    let pago
 
     venta = new Venta()
 
@@ -243,9 +249,89 @@ const finalizarVenta = async (req, res, next) => {
 
     let total = venta.calcularTotal()
 
-    const pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
+    let site_transaction 
 
-    await ventadb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total }, { transaction: t });
+
+    if(tipoPago == 'EFECTIVO'){
+     
+       pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
+
+       await ventadb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: total }, { transaction: t });
+    }
+
+    if(tipoPago == 'TARJETA'){
+
+     const ultimoPago = await db.PagosTarjetas.findOne({
+        order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
+      });
+      
+
+      if(!ultimoPago){
+
+        site_transaction = 156
+      }else{
+        site_transaction = ultimoPago.site_transaction_id + 1
+      }
+
+       // Construir el cuerpo de la solicitud a la siguiente dirección
+       const requestBody = {
+        site_transaction_id: String(site_transaction),
+        payment_method_id: 1,
+        token,
+        bin: "450799",
+        amount: total, // Convertir amount a número
+        currency: "ARS",
+        installments: 1,
+        description: "",
+        payment_type: "single",
+        establishment_name: "single",
+        sub_payments: [{
+            site_id: "",
+            amount: total, // Convertir amount a número
+            installments: null
+        }]
+    };
+
+    // Definir los encabezados personalizados
+    const headers = {
+        "Content-Type": "application/json",
+        "apikey": "566f2c897b5e4bfaa0ec2452f5d67f13",
+        "Cache-Control": "no-cache"
+    };
+
+    // Realizar la solicitud a la siguiente dirección
+    const response = await fetch("https://developers.decidir.com/api/v2/payments", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(requestBody)
+    });
+
+    const responseData = await response.json();
+    console.log(responseData)
+
+     // Verificar si la solicitud fue exitosa
+     if (response.ok) {
+
+                
+       pago = await db.PagosTarjetas.create({ id: responseData.id, site_transaction_id: responseData.site_transaction_id, card_brand: responseData.card_brand
+        , amount: responseData.amount, currency: responseData.currency, status: responseData.status, date: responseData.date }, { transaction: t });
+  
+
+        await ventadb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: total }, { transaction: t });
+
+  } else {
+      // Si la solicitud falla, enviar el estado de error y el mensaje
+      await t.rollback();
+      return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
+  }
+
+     
+      
+    }
+
+
+
+   
 
     const sucursal = await db.Sucursales.findByPk(ventadb.sucursalId, { transaction: t });
     const PDV = await db.PuntosDeVenta.findByPk(ventadb.PDVId, { transaction: t });
@@ -271,10 +357,7 @@ const finalizarVenta = async (req, res, next) => {
       CUIT: cliente.CUIT,
 
     },
-    pago: {
-      monto: pago.monto,
-      tipo: pago.tipo
-    },
+    pago: pago,
     sucursal: sucursal.descripcion,
     PDV: PDV.numero,
     vendedor: {
