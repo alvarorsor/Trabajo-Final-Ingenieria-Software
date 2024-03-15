@@ -31,7 +31,7 @@ app.use(express.json({ limit: '50mb' }));
 
 
 
-app.set('PORT', process.env.SERVER_PORTr || 3000)
+app.set('PORT', process.env.SERVER_PORT || 3000)
 
 //app.use(express.json())
 

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "driver",
+    "password": "123456",
     "database": "tfi-software",
     "host": "127.0.0.1",
     "dialect": "mysql"

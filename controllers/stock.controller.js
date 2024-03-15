@@ -1,4 +1,5 @@
 const db = require('../repositorio/models')
+const sequelize = db.sequelize;
 const apicache = require('apicache')
 const {makeSuccessResponse} = require('../utils/response.utils')
 const {makeErrorResponse} = require('../utils/response.utils')
@@ -136,11 +137,38 @@ const deleteStockById = async (req, res, next) => {
     }
 }
 
+const getStockByBranch = async (req, res, next) => {
+
+    try {
+        const branchId = req.params.branchId
+
+        const stock = await sequelize.query(
+            'SELECT stocks.id, cantidad, colores.descripcion as color, talles.descripcion as talle, articulos.descripcion as articulo FROM stocks ' +
+            'JOIN colores ON stocks.colorId = colores.id JOIN articulos ON stocks.articuloId = articulos.id JOIN talles ON stocks.talleId = talles.id ' +
+            'WHERE stocks.sucursalId = :branchId',
+            {
+              replacements: { branchId: branchId }
+            }
+        )
+
+        if(!stock){
+            return res.status(404).json(makeErrorResponse([`Stock de la sucursal ${branchId} no encontrado.`]))
+        }
+
+        res.json(makeSuccessResponse(stock[0]))
+
+    } catch (err) {
+       next(err)
+    }
+
+}
+
 
 module.exports = {
     getAllStocks,
     createStock,
     getStockById,
     patchStockById,
-    deleteStockById
+    deleteStockById,
+    getStockByBranch
 }
