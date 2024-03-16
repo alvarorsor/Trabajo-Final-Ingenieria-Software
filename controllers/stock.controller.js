@@ -143,9 +143,10 @@ const getStockByBranch = async (req, res, next) => {
         const branchId = req.params.branchId
 
         const stock = await sequelize.query(
-            'SELECT stocks.id, cantidad, colores.descripcion as color, talles.descripcion as talle, articulos.descripcion as articulo FROM stocks ' +
+            'SELECT stocks.id, cantidad, colores.descripcion as color, talles.descripcion as talle, articulos.descripcion as articulo, ' +
+            'stocks.colorId, stocks.articuloId, stocks.talleId FROM stocks ' +
             'JOIN colores ON stocks.colorId = colores.id JOIN articulos ON stocks.articuloId = articulos.id JOIN talles ON stocks.talleId = talles.id ' +
-            'WHERE stocks.sucursalId = :branchId',
+            'WHERE stocks.sucursalId = :branchId ORDER BY stocks.articuloId, stocks.colorId, stocks.talleId',
             {
               replacements: { branchId: branchId }
             }
