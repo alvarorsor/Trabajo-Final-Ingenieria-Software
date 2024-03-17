@@ -1,5 +1,5 @@
 const db = require('../repositorio/models')
-const sequelize = db.sequelize;
+const sequelize = db.sequelize
 const apicache = require('apicache')
 const {makeSuccessResponse} = require('../utils/response.utils')
 const {makeErrorResponse} = require('../utils/response.utils')

@@ -1,4 +1,5 @@
 const db = require('../repositorio/models')
+const sequelize = db.sequelize
 const apicache = require('apicache')
 const {makeSuccessResponse} = require('../utils/response.utils')
 const {makeErrorResponse} = require('../utils/response.utils')
@@ -126,11 +127,40 @@ const deleteClienteById = async (req, res, next) => {
     }
 }
 
+const getClienteByCUIT = async (req, res, next) => {
+
+    try{
+        const cuit = parseInt(req.query.cuit)
+
+        const cliente = await sequelize.query(
+            'SELECT clientes.id as id, nombre, apellido, domicilio, CUIT, condicionTributariaId, ct.descripcion as condicionTributaria ' +
+            'FROM clientes JOIN condicionesTributarias as ct ON ct.id = clientes.condicionTributariaId ' +
+            'WHERE clientes.CUIT = :cuit',
+            {
+              replacements: { cuit: cuit }
+            }
+        )
+
+    if(!cliente){
+        return res.status(404).json(makeErrorResponse([`Cliente con CUIT ${cuit} no encontrado.`]))
+    }
+
+
+    res.json(makeSuccessResponse(cliente[0]))
+
+
+    } catch (err){
+       next(err)
+    }
+}
+
+
 
 module.exports = {
     getAllClientes,
     createCliente,
     getClienteById,
     patchClienteById,
-    deleteClienteById
+    deleteClienteById,
+    getClienteByCUIT
 }

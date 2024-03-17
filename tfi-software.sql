@@ -16,14 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `tfi-software`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `tfi-software` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-
-USE `tfi-software`;
-
---
 -- Table structure for table `administrativos`
 --
 
@@ -139,7 +131,7 @@ CREATE TABLE `clientes` (
   UNIQUE KEY `CUIT_2` (`CUIT`),
   KEY `Clientes_condicionTributariaId_foreign_idx` (`condicionTributariaId`),
   CONSTRAINT `Clientes_condicionTributariaId_foreign_idx` FOREIGN KEY (`condicionTributariaId`) REFERENCES `condicionestributarias` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +140,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'Cliente 1','Apellido 1','Domicilio 1',12345678901,'2024-03-15 11:18:47','2024-03-15 11:18:47',1),(2,'Cliente 2','Apellido 2','Domicilio 2',12345678902,'2024-03-15 11:18:47','2024-03-15 11:18:47',2),(3,'Cliente 3','Apellido 3','Domicilio 3',12345678903,'2024-03-15 11:18:47','2024-03-15 11:18:47',3),(4,'Cliente 4','Apellido 4','Domicilio 4',12345678904,'2024-03-15 11:18:47','2024-03-15 11:18:47',4),(5,'Cliente 5','Apellido 5','Domicilio 5',12345678905,'2024-03-15 11:18:47','2024-03-15 11:18:47',5);
+INSERT INTO `clientes` VALUES (6,'Juan','López','Calle 123',12345678901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(7,'María','García','Avenida 456',98765432109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(8,'Pedro','Rodríguez','Plaza 789',13579246803,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(9,'Ana','Martínez','Ruta 321',24681357904,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(10,'Luis','Pérez','Calle 987',36985214706,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(11,'Laura','Sánchez','Avenida 654',25814736901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(12,'Carlos','Fernández','Plaza 987',74185296307,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(13,'Marta','López','Ruta 654',96325874109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(14,'José','Gómez','Calle 741',14796325803,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(15,'Silvia','Torres','Avenida 852',85274196305,'2024-03-17 15:17:25','2024-03-17 15:17:25',1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +404,7 @@ DROP TABLE IF EXISTS `sequelizemeta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sequelizemeta` (
-  `name` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`name`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -674,4 +666,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-15 12:12:47
+-- Dump completed on 2024-03-17 15:21:50
