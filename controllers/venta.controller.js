@@ -191,7 +191,7 @@ const finalizarVenta = async (req, res, next) => {
  
   
 
-  const { tipoPago, token , ventaId } = req.query
+  const { tipoPago, tokenPago , ventaId, tokenComprobante } = req.query
 
 
  
@@ -277,7 +277,7 @@ const finalizarVenta = async (req, res, next) => {
        const requestBody = {
         site_transaction_id: String(site_transaction),
         payment_method_id: 1,
-        token,
+        token: tokenPago,
         bin: "450799",
         amount: total, // Convertir amount a número
         currency: "ARS",
@@ -329,9 +329,56 @@ const finalizarVenta = async (req, res, next) => {
       
     }
 
+/*
+ // Construir el cuerpo de la solicitud a la siguiente dirección
+const headers = {
+  "Content-Type": "text/xml",
+  "SOAPACTION": "http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarCae",
+};
 
+const body = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ist="http://ISTP1.Service.Contracts.Service" xmlns:sge="http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ist:SolicitarCae>
+         <!-- Tu token aquí -->
+         <!-- Optional -->
+         <ist:token>${tokenComprobante}</ist:token>
+         <!--Optional:-->
+         <ist:solicitud>
+            <!--Optional:-->
+            <sge:Fecha>2024-03-14T00:02:11.207</sge:Fecha>
+            <!--Optional:-->
+            <sge:ImporteIva>200</sge:ImporteIva>
+            <!--Optional:-->
+            <sge:ImporteNeto>300</sge:ImporteNeto>
+            <!--Optional:-->
+            <sge:ImporteTotal>${total}</sge:ImporteTotal>
+            <!--Optional:-->
+            <sge:Numero>78</sge:Numero>
+            <!--Optional:-->
+            <sge:NumeroDocumento>12345678</sge:NumeroDocumento>
+            <!--Optional:-->
+            <sge:TipoComprobante>FacturaB</sge:TipoComprobante>
+            <!--Optional:-->
+            <sge:TipoDocumento>Dni</sge:TipoDocumento>
+         </ist:solicitud>
+      </ist:SolicitarCae>
+   </soapenv:Body>
+</soapenv:Envelope>`;
 
-   
+fetch('http://istp1service.azurewebsites.net/LoginService.svc', {
+  method: 'POST',
+  headers: headers,
+  body: body
+})
+  .then(response => response.text())
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+   */
 
     const sucursal = await db.Sucursales.findByPk(ventadb.sucursalId, { transaction: t });
     const PDV = await db.PuntosDeVenta.findByPk(ventadb.PDVId, { transaction: t });

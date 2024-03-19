@@ -195,7 +195,7 @@ const finalizarDevolucion = async (req, res, next) => {
  
   
 
-  const { tipoPago, devolucionId } = req.body
+  const { tipoPago, devolucionId, tokenPago } = req.body
 
  
  // Iniciar una transacción
@@ -265,9 +265,91 @@ const finalizarDevolucion = async (req, res, next) => {
 
    let total = precio_cambio - precio_devolucion
 
-    const pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
 
-    await devoluciondb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total }, { transaction: t });
+   if(tipoPago == 'EFECTIVO'){
+     
+    pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
+
+    await devoluciondb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: total }, { transaction: t });
+ }
+
+
+   if(tipoPago == 'TARJETA'){
+
+    const ultimoPago = await db.PagosTarjetas.findOne({
+       order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
+     });
+     
+
+     if(!ultimoPago){
+
+       site_transaction = 156
+     }else{
+       site_transaction = ultimoPago.site_transaction_id + 1
+     }
+
+      // Construir el cuerpo de la solicitud a la siguiente dirección
+      const requestBody = {
+       site_transaction_id: String(site_transaction),
+       payment_method_id: 1,
+       token: tokenPago,
+       bin: "450799",
+       amount: total, // Convertir amount a número
+       currency: "ARS",
+       installments: 1,
+       description: "",
+       payment_type: "single",
+       establishment_name: "single",
+       sub_payments: [{
+           site_id: "",
+           amount: total, // Convertir amount a número
+           installments: null
+       }]
+   };
+
+   // Definir los encabezados personalizados
+   const headers = {
+       "Content-Type": "application/json",
+       "apikey": "566f2c897b5e4bfaa0ec2452f5d67f13",
+       "Cache-Control": "no-cache"
+   };
+
+   // Realizar la solicitud a la siguiente dirección
+   const response = await fetch("https://developers.decidir.com/api/v2/payments", {
+       method: "POST",
+       headers: headers,
+       body: JSON.stringify(requestBody)
+   });
+
+   const responseData = await response.json();
+   console.log(responseData)
+
+    // Verificar si la solicitud fue exitosa
+    if (response.ok) {
+
+               
+      pago = await db.PagosTarjetas.create({ id: responseData.id, site_transaction_id: responseData.site_transaction_id, card_brand: responseData.card_brand
+       , amount: responseData.amount, currency: responseData.currency, status: responseData.status, date: responseData.date }, { transaction: t });
+ 
+
+       await devoluciondb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: total }, { transaction: t });
+
+ } else {
+     // Si la solicitud falla, enviar el estado de error y el mensaje
+     await t.rollback();
+     return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
+ }
+
+    
+     
+   }
+
+
+   
+
+    //const pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
+
+   // await devoluciondb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total }, { transaction: t });
 
     const sucursal = await db.Sucursales.findByPk(devoluciondb.sucursalId, { transaction: t });
     const PDV = await db.PuntosDeVenta.findByPk(devoluciondb.PDVId, { transaction: t });
@@ -293,10 +375,7 @@ const finalizarDevolucion = async (req, res, next) => {
       CUIT: cliente.CUIT,
 
     },
-    pago: {
-      monto: pago.monto,
-      tipo: pago.tipo
-    },
+    pago: pago,
     sucursal: sucursal.descripcion,
     PDV: PDV.numero,
     vendedor: {

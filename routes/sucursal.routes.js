@@ -9,7 +9,7 @@ const apicache = require('apicache')
 
 let cache = apicache.middleware
 
-sucursalRouter.post('/',//isAdministrador,
+sucursalRouter.post('/',isAdministrador,
 
 createSucursal,
 //errorMiddleware
@@ -18,7 +18,7 @@ createSucursal,
 
 
 
-sucursalRouter.get('/', //isAuthenthicated,
+sucursalRouter.get('/', isAuthenthicated,
 cache('5 minutes'),
 getAllSucursals,
 errorMiddleware
@@ -26,7 +26,7 @@ errorMiddleware
 
 
 
-sucursalRouter.get('/:id', //isAuthenthicated,
+sucursalRouter.get('/:id', isAuthenthicated,
 
 getSucursalById,
 errorMiddleware
@@ -34,7 +34,7 @@ errorMiddleware
 
 
 
-sucursalRouter.delete('/:id',// isAdministrador,
+sucursalRouter.delete('/:id', isAdministrador,
 
 deleteSucursalById,
 errorMiddleware
@@ -42,7 +42,7 @@ errorMiddleware
 
 
 
- sucursalRouter.patch('/:id', //isAdministrador,
+ sucursalRouter.patch('/:id', isAdministrador,
  
  patchSucursalById,
  errorMiddleware
