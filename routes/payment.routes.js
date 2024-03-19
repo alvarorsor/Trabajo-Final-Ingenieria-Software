@@ -95,5 +95,12 @@ paymentRouter.get("/vuelta-pending", (req, res) => {
 
 paymentRouter.post("/webhook", manejarFin);
 
+paymentRouter.post("/pagar", async (req, res) => {
+
+
+
+
+})
+
 
 module.exports = paymentRouter;
