@@ -4,20 +4,32 @@
     "password": "123456",
     "database": "tfi-software",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "supportBigNumbers": true,
+      "bigNumberStrings": true
+    }
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "supportBigNumbers": true,
+      "bigNumberStrings": true
+    }
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "supportBigNumbers": true,
+      "bigNumberStrings": true
+    }
   }
 }

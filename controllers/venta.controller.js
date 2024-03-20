@@ -8,6 +8,7 @@ const fetch = require('node-fetch')
 const express = require("express")
 const { stringify } = require('uuid')
 const LineaDeArticulo = require('../models/LineaDeArticulo')
+const { Op } = require('sequelize')
 
 
 const createVenta = async (req, res, next) => {
@@ -403,7 +404,7 @@ const realizarVenta = async(req, res, next) => {
 
   const t = await db.sequelize.transaction();
 
-  const { lineasDeVenta, tarjeta, monto } = req.body
+  const { lineasDeVenta, tarjeta, monto, clienteCuit } = req.body
 
   try{
 
@@ -425,11 +426,13 @@ const realizarVenta = async(req, res, next) => {
       await db.lineasDeArticulos.create(
         {cantidad: lineaDeVenta.cantidad, stockId: lineaDeVenta.stockId, subTotal: subTotal, tipo: "VENTA", ventaId: createVenta.id}, {transaction: t}
       )
+
+      stock.update({ cantidad: stock.cantidad - lineaDeVenta.cantidad}, { transaction: t });
     });
 
     // Construir el cuerpo de la solicitud a la siguiente dirección
 
-    //console.log(tarjeta)
+    const dni = clienteCuit.substring(2, clienteCuit.lenght)
 
     const tokensRequestBody = {
       card_number: tarjeta.numero,
@@ -439,14 +442,14 @@ const realizarVenta = async(req, res, next) => {
       card_holder_name: tarjeta.titular,
       card_holder_identification: {
         type: "dni",
-        number: "38555826"
+        number: dni
       }
     };
 
     // Definir los encabezados personalizados
     const tokensHeaders = {
       "Content-Type": "application/json",
-      "apikey": "e9cdb99fff374b5f91da4480c8dca741",
+      "apikey": "b192e4cb99564b84bf5db5550112adea",
       "Cache-Control": "no-cache"
     };
 
@@ -459,16 +462,27 @@ const realizarVenta = async(req, res, next) => {
 
     const preAuthResponse = await tokensResponse.json();
 
-    const token = preAuthResponse.id
+    if (!tokensResponse.ok) {
+      // Si la solicitud falla, enviar el estado de error y el mensaje
+      await t.rollback();
+      return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
+    }
 
-    console.log(token)
+    const token = preAuthResponse.id;
+    const bin = preAuthResponse.bin;
+
+    //console.log(bin)
+
+    //console.log(preAuthResponse)
 
     const ultimoPago = await db.PagosTarjetas.findOne({
       order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
     }, { transaction: t });
 
+    let site_transaction
+
     if(!ultimoPago){
-      site_transaction = 4123523
+      site_transaction = Math.floor(Math.random() * 10000) + 1
     }else{
       site_transaction = ultimoPago.site_transaction_id + 1
     }
@@ -477,8 +491,8 @@ const realizarVenta = async(req, res, next) => {
      const requestBody = {
       site_transaction_id: String(site_transaction),
       payment_method_id: 1,
-      token,
-      bin: "450799",
+      token: token,
+      bin: bin,
       amount: parseInt(monto), // Convertir amount a número
       currency: "ARS",
       installments: 1,
@@ -508,17 +522,29 @@ const realizarVenta = async(req, res, next) => {
 
     const paymentResponse = await(response.json())
 
-    console.log(paymentResponse)
-    console.log(token)
+    //console.log(paymentResponse)
+    //console.log(paymentResponse.status_details.error)
+
 
     // Verificar si la solicitud fue exitosa
     if (response.ok) {
                 
-      pago = await db.PagosTarjetas.create({ id: responseData.id, site_transaction_id: responseData.site_transaction_id, card_brand: responseData.card_brand
-       , amount: responseData.amount, currency: responseData.currency, status: responseData.status, date: responseData.date }, { transaction: t });
+      const pago = await db.PagosTarjetas.create({ 
+        id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
+        amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
+        { transaction: t }
+      );
  
 
-      await ventadb.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto }, { transaction: t });
+      const cliente = await db.Clientes.findOne({
+        where: { CUIT: {
+          [Op.eq]: BigInt(clienteCuit)
+        } }
+      }, { transaction: t })
+
+      console.log(cliente)
+
+      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
 
       t.commit();
     } else {
