@@ -406,13 +406,23 @@ const realizarVenta = async(req, res, next) => {
 
   const { lineasDeVenta, tarjeta, monto, clienteCuit } = req.body
 
+  const { tipoPago } = req.params
+
   try{
 
     // Crear venta en la base de datos
 
     const createVenta = await db.Ventas.create({}, {transaction: t})
 
-    // Agregar lineas de venta a la base de datos
+    // Cliente
+
+    const cliente = await db.Clientes.findOne({
+      where: { CUIT: {
+        [Op.eq]: BigInt(clienteCuit)
+      }}
+    }, { transaction: t })
+
+    // Agregar lineas de venta a la base de datos y modificar stock
 
     lineasDeVenta.forEach(async lineaDeVenta => {
 
@@ -430,128 +440,134 @@ const realizarVenta = async(req, res, next) => {
       stock.update({ cantidad: stock.cantidad - lineaDeVenta.cantidad}, { transaction: t });
     });
 
-    // Construir el cuerpo de la solicitud a la siguiente dirección
+    // Si el tipo pago es tarjeta llamar al servicio externo de pago con tarjeta
 
-    const dni = clienteCuit.substring(2, clienteCuit.lenght)
+    if (tipoPago == "TARJETA") {
 
-    const tokensRequestBody = {
-      card_number: tarjeta.numero,
-      card_expiration_month: tarjeta.mesVencimiento,
-      card_expiration_year: tarjeta.anioVencimiento,
-      security_code: tarjeta.ccv,
-      card_holder_name: tarjeta.titular,
-      card_holder_identification: {
-        type: "dni",
-        number: dni
+      // Construir el cuerpo de la solicitud a la siguiente dirección
+
+      const dni = clienteCuit.substring(2, clienteCuit.lenght)
+
+      const tokensRequestBody = {
+        card_number: tarjeta.numero,
+        card_expiration_month: tarjeta.mesVencimiento,
+        card_expiration_year: tarjeta.anioVencimiento,
+        security_code: tarjeta.ccv,
+        card_holder_name: tarjeta.titular,
+        card_holder_identification: {
+          type: "dni",
+          number: dni
+        }
+      };
+
+      // Definir los encabezados personalizados
+      const tokensHeaders = {
+        "Content-Type": "application/json",
+        "apikey": "b192e4cb99564b84bf5db5550112adea",
+        "Cache-Control": "no-cache"
+      };
+
+      // Realizar la solicitud a la siguiente dirección
+      const tokensResponse = await fetch("https://developers.decidir.com/api/v2/tokens", {
+        method: "POST",
+        headers: tokensHeaders,
+        body: JSON.stringify(tokensRequestBody)
+      })
+
+      const preAuthResponse = await tokensResponse.json();
+
+      if (!tokensResponse.ok) {
+        // Si la solicitud falla, enviar el estado de error y el mensaje
+        await t.rollback();
+        return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
       }
-    };
 
-    // Definir los encabezados personalizados
-    const tokensHeaders = {
-      "Content-Type": "application/json",
-      "apikey": "b192e4cb99564b84bf5db5550112adea",
-      "Cache-Control": "no-cache"
-    };
+      const token = preAuthResponse.id;
+      const bin = preAuthResponse.bin;
 
-    // Realizar la solicitud a la siguiente dirección
-    const tokensResponse = await fetch("https://developers.decidir.com/api/v2/tokens", {
-      method: "POST",
-      headers: tokensHeaders,
-      body: JSON.stringify(tokensRequestBody)
-    })
+      const ultimoPago = await db.PagosTarjetas.findOne({
+        order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
+      }, { transaction: t });
 
-    const preAuthResponse = await tokensResponse.json();
+      let site_transaction
 
-    if (!tokensResponse.ok) {
-      // Si la solicitud falla, enviar el estado de error y el mensaje
-      await t.rollback();
-      return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
-    }
+      if(!ultimoPago){
+        site_transaction = Math.floor(Math.random() * 10000) + 1
+      }else{
+        site_transaction = ultimoPago.site_transaction_id + 1
+      }
 
-    const token = preAuthResponse.id;
-    const bin = preAuthResponse.bin;
-
-    //console.log(bin)
-
-    //console.log(preAuthResponse)
-
-    const ultimoPago = await db.PagosTarjetas.findOne({
-      order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
-    }, { transaction: t });
-
-    let site_transaction
-
-    if(!ultimoPago){
-      site_transaction = Math.floor(Math.random() * 10000) + 1
-    }else{
-      site_transaction = ultimoPago.site_transaction_id + 1
-    }
-
-     // Construir el cuerpo de la solicitud a la siguiente dirección
-     const requestBody = {
-      site_transaction_id: String(site_transaction),
-      payment_method_id: 1,
-      token: token,
-      bin: bin,
-      amount: parseInt(monto), // Convertir amount a número
-      currency: "ARS",
-      installments: 1,
-      description: "",
-      payment_type: "single",
-      establishment_name: "single",
-      sub_payments: [{
+      // Construir el cuerpo de la solicitud a la siguiente dirección
+      const requestBody = {
+        site_transaction_id: String(site_transaction),
+        payment_method_id: 1,
+        token: token,
+        bin: bin,
+        amount: parseInt(monto), // Convertir amount a número
+        currency: "ARS",
+        installments: 1,
+        description: "",
+        payment_type: "single",
+        establishment_name: "single",
+        sub_payments: [{
           site_id: "",
           amount: parseInt(monto), // Convertir amount a número
           installments: null
-      }]
-    };
+        }]
+      };
 
-    // Definir los encabezados personalizados
-    const headers = {
-      "Content-Type": "application/json",
-      "apikey": "566f2c897b5e4bfaa0ec2452f5d67f13",
-      "Cache-Control": "no-cache"
-    };
+      // Definir los encabezados personalizados
+      const headers = {
+        "Content-Type": "application/json",
+        "apikey": "566f2c897b5e4bfaa0ec2452f5d67f13",
+        "Cache-Control": "no-cache"
+      };
 
-    // Realizar la solicitud a la siguiente dirección
-    const response = await fetch("https://developers.decidir.com/api/v2/payments", {
-      method: "POST",
-      headers: headers,
-      body: JSON.stringify(requestBody)
-    });
+      // Realizar la solicitud a la siguiente dirección
+      const response = await fetch("https://developers.decidir.com/api/v2/payments", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(requestBody)
+      });
 
-    const paymentResponse = await(response.json())
+      const paymentResponse = await(response.json())
 
-    //console.log(paymentResponse)
-    //console.log(paymentResponse.status_details.error)
-
-
-    // Verificar si la solicitud fue exitosa
-    if (response.ok) {
+      // Verificar si la solicitud fue exitosa
+      if (response.ok) {
                 
-      const pago = await db.PagosTarjetas.create({ 
-        id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
-        amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
-        { transaction: t }
-      );
- 
+        const pago = await db.PagosTarjetas.create({ 
+          id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
+          amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
+          { transaction: t }
+        );
+        
+        await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
 
-      const cliente = await db.Clientes.findOne({
-        where: { CUIT: {
-          [Op.eq]: BigInt(clienteCuit)
-        } }
-      }, { transaction: t })
+        t.commit();
+        return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
+  
+      } else {
 
-      console.log(cliente)
+        // Si la solicitud falla, enviar el estado de error y el mensaje
+        await t.rollback();
+        return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
+      }
 
-      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
-
-      t.commit();
-    } else {
-      // Si la solicitud falla, enviar el estado de error y el mensaje
-      await t.rollback();
-      return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
     }
+
+    //Si el tipo pago es en efectivo continuar la venta
+
+    if (tipoPago == "EFECTIVO") {
+      const pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
+
+      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
+
+      t.commit()
+      return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
+    }
+
+    throw(err)
+    // TODO: Acá toca comunciarse con el servicio de afip para la emisión de comprobantes
 
   } catch(err) {
 
@@ -560,6 +576,8 @@ const realizarVenta = async(req, res, next) => {
       await t.rollback();
 
       next(err);
+
+      return res.status(404).json(makeErrorResponse(['No se pudo realizar la venta.']));
   }
 }
 
