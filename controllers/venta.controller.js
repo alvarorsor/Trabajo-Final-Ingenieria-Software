@@ -13,6 +13,7 @@ const { Op } = require('sequelize')
 const { solicitarAutorizacion, solicitarUltimosComprobantes, solicitarCae } = require('../controllers/afip.controller.js')
 const { now } = require('moment')
 const { cli } = require('winston/lib/winston/config/index.js')
+const sequelize = db.sequelize
 
 
 const createVenta = async (req, res, next) => {
@@ -432,6 +433,10 @@ const realizarVenta = async(req, res, next) => {
       // Crear un nuevo cliente con un CUIT 99999999999 (Cliente anonimo)
       await db.Clientes.create({
         CUIT: BigInt(99999999999),
+        nombre: "",
+        apellido: "",
+        domicilio: "",
+        condicionTributariaId: 5
         // Otros campos del cliente
       }, { transaction: t });
     }
@@ -614,6 +619,30 @@ const realizarVenta = async(req, res, next) => {
     )
 
     console.log(resultadoCae)
+
+    let tipoComprobanteId
+
+    const tipoComprobante = await db.TipoComprobantes.findOne({descripcion: tipoFactura})
+
+    if (!tipoComprobante) {
+      const createTipoComprobante = await db.TipoComprobantes.create({descripcion: tipoFactura})
+
+      tipoComprobanteId = createTipoComprobante.id
+    } else {
+      tipoComprobanteId = tipoComprobante.id
+    }
+
+    await db.Comprobantes.create(
+      {
+        cae: resultadoCae.cae,
+        numero: resultadoCae.nroComprobante,
+        estado: resultadoCae.estado,
+        tipoId: tipoComprobanteId
+      },
+      { transaction: t }
+    )
+
+    await createVenta.update({ nroComprobante: resultadoCae.cae }, { transaction: t })
 
     t.commit();
     return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));

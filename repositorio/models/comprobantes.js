@@ -25,13 +25,6 @@ module.exports = (sequelize, DataTypes) => {
   estado: {
     type: DataTypes.STRING
   },
-  ventaId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'Ventas',
-      key: 'id'
-    }
-  },
   tipoId: {
     type: DataTypes.INTEGER,
     references: {

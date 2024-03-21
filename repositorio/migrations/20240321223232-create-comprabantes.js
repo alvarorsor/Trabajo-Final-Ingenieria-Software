@@ -13,6 +13,16 @@ module.exports = {
     descripcion: {
         type: DataTypes.STRING
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW
+      }
     })
  
     await queryInterface.createTable('Comprobantes', {
@@ -30,16 +40,6 @@ module.exports = {
       },
       estado: {
         type: DataTypes.STRING
-      },
-      ventaId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Ventas',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
       },
       tipoId: {
         type: DataTypes.INTEGER,
@@ -61,12 +61,6 @@ module.exports = {
         allowNull: false,
         defaultValue: DataTypes.NOW
       }
-    });
-
-    await queryInterface.addConstraint('Comprobantes', {
-      fields: ['ventaId', 'tipoId'],
-      type: 'unique',
-      name: 'comprobantes_ventaId_tipoId_unique'
     });
   },
 

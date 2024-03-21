@@ -172,6 +172,36 @@ INSERT INTO `colores` VALUES (1,'Rojo','2024-03-15 11:18:47','2024-03-15 11:18:4
 UNLOCK TABLES;
 
 --
+-- Table structure for table `comprobantes`
+--
+
+DROP TABLE IF EXISTS `comprobantes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comprobantes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cae` varchar(255) DEFAULT NULL,
+  `numero` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `tipoId` int NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tipoId` (`tipoId`),
+  CONSTRAINT `comprobantes_ibfk_2` FOREIGN KEY (`tipoId`) REFERENCES `tipocomprobantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comprobantes`
+--
+
+LOCK TABLES `comprobantes` WRITE;
+/*!40000 ALTER TABLE `comprobantes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comprobantes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `condicionestributarias`
 --
 
@@ -509,6 +539,32 @@ INSERT INTO `talles` VALUES (1,'XS','2024-03-15 11:24:04','2024-03-15 11:24:04',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipocomprobantes`
+--
+
+DROP TABLE IF EXISTS `tipocomprobantes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipocomprobantes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipocomprobantes`
+--
+
+LOCK TABLES `tipocomprobantes` WRITE;
+/*!40000 ALTER TABLE `tipocomprobantes` DISABLE KEYS */;
+INSERT INTO `tipocomprobantes` VALUES (1,'FacturaA','2024-03-21 18:43:23','2024-03-21 18:43:23'),(2,'FacturaB','2024-03-21 18:43:34','2024-03-21 18:43:34');
+/*!40000 ALTER TABLE `tipocomprobantes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tipotalles`
 --
 
@@ -521,7 +577,7 @@ CREATE TABLE `tipotalles` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -530,7 +586,6 @@ CREATE TABLE `tipotalles` (
 
 LOCK TABLES `tipotalles` WRITE;
 /*!40000 ALTER TABLE `tipotalles` DISABLE KEYS */;
-INSERT INTO `tipotalles` VALUES (1,'Tipo Talle 1','2024-03-15 11:18:47','2024-03-15 11:18:47');
 /*!40000 ALTER TABLE `tipotalles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -660,4 +715,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-21 10:54:04
+-- Dump completed on 2024-03-21 19:34:52
