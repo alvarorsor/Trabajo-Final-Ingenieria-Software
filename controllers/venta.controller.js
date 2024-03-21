@@ -406,7 +406,7 @@ const realizarVenta = async(req, res, next) => {
 
   const { lineasDeVenta, tarjeta, monto, clienteCuit } = req.body
 
-  const { tipoPago } = req.params
+  const { tipoPago } = req.query
 
   try{
 
@@ -416,15 +416,25 @@ const realizarVenta = async(req, res, next) => {
 
     // Cliente
 
+    console.log(clienteCuit)
+
     const cliente = await db.Clientes.findOne({
       where: { CUIT: {
         [Op.eq]: BigInt(clienteCuit)
       }}
     }, { transaction: t })
 
+    if (!cliente) {
+      // Crear un nuevo cliente con un CUIT 99999999999 (Cliente anonimo)
+      await db.Clientes.create({
+        CUIT: BigInt(99999999999),
+        // Otros campos del cliente
+      }, { transaction: t });
+    }
+
     // Agregar lineas de venta a la base de datos y modificar stock
 
-    lineasDeVenta.forEach(async lineaDeVenta => {
+    await Promise.all(lineasDeVenta.map(async (lineaDeVenta) => {
 
       const stock = await db.Stocks.findByPk(lineaDeVenta.stockId, {transaction: t})
       const articulo = await db.Articulos.findByPk(stock.articuloId, {transaction: t})
@@ -434,11 +444,23 @@ const realizarVenta = async(req, res, next) => {
       let subTotal =  lineaDeArticulo.calcularSubTotal()
 
       await db.lineasDeArticulos.create(
-        {cantidad: lineaDeVenta.cantidad, stockId: lineaDeVenta.stockId, subTotal: subTotal, tipo: "VENTA", ventaId: createVenta.id}, {transaction: t}
+        { cantidad: lineaDeVenta.cantidad, stockId: lineaDeVenta.stockId, subTotal: subTotal, tipo: "VENTA", ventaId: createVenta.id }, 
+        { transaction: t }
       )
 
-      stock.update({ cantidad: stock.cantidad - lineaDeVenta.cantidad}, { transaction: t });
-    });
+      await stock.update({ cantidad: stock.cantidad - lineaDeVenta.cantidad}, { transaction: t });
+    }));
+
+    //Si el tipo pago es en efectivo continuar la venta
+    if (tipoPago == "EFECTIVO") {
+
+      const pago = await db.Pagos.create({ monto: parseInt(monto), tipo: tipoPago }, { transaction: t });
+
+      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: monto, clienteId: cliente.id}, { transaction: t });
+    
+      await t.commit()
+      return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
+    }
 
     // Si el tipo pago es tarjeta llamar al servicio externo de pago con tarjeta
 
@@ -554,19 +576,6 @@ const realizarVenta = async(req, res, next) => {
       }
 
     }
-
-    //Si el tipo pago es en efectivo continuar la venta
-
-    if (tipoPago == "EFECTIVO") {
-      const pago = await db.Pagos.create({ monto: total, tipo: tipoPago }, { transaction: t });
-
-      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
-
-      t.commit()
-      return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
-    }
-
-    throw(err)
     // TODO: Acá toca comunciarse con el servicio de afip para la emisión de comprobantes
 
   } catch(err) {
