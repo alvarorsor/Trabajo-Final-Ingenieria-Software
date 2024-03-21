@@ -10,6 +10,10 @@ const { stringify } = require('uuid')
 const LineaDeArticulo = require('../models/LineaDeArticulo')
 const { Op } = require('sequelize')
 
+const { solicitarAutorizacion, solicitarUltimosComprobantes, solicitarCae } = require('../controllers/afip.controller.js')
+const { now } = require('moment')
+const { cli } = require('winston/lib/winston/config/index.js')
+
 
 const createVenta = async (req, res, next) => {
 
@@ -457,9 +461,6 @@ const realizarVenta = async(req, res, next) => {
       const pago = await db.Pagos.create({ monto: parseInt(monto), tipo: tipoPago }, { transaction: t });
 
       await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: monto, clienteId: cliente.id}, { transaction: t });
-    
-      await t.commit()
-      return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
     }
 
     // Si el tipo pago es tarjeta llamar al servicio externo de pago con tarjeta
@@ -564,9 +565,6 @@ const realizarVenta = async(req, res, next) => {
         );
         
         await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
-
-        t.commit();
-        return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
   
       } else {
 
@@ -577,6 +575,48 @@ const realizarVenta = async(req, res, next) => {
 
     }
     // TODO: Acá toca comunciarse con el servicio de afip para la emisión de comprobantes
+
+    const afipToken = await solicitarAutorizacion(next);
+
+    const ultimosComprobantes = await solicitarUltimosComprobantes(afipToken, next);
+    
+    const clienteCondicionTributaria = await db.CondicionesTributarias.findByPk(cliente.condicionTributariaId)
+
+    const tipoDocumento = () => {
+      if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") return "ConsumidorFinal"
+      else return "Cuit"
+    }
+
+    const nroDocumento = () => {
+      if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") return 0
+      else return cliente.CUIT
+    }
+
+    const tipoFactura = () => {
+      if(clienteCondicionTributaria == "RESPONSABLE INSCRIPTO" || clienteCondicionTributaria == "MONOTRIBUTISTA") return "FacturaA"
+      else return "FacturaB"
+    }
+
+    const ultimoComprobante = () => {
+      if (tipoFactura == "FacturaA") return parseInt(ultimosComprobantes[0].numero) + 1
+      else return parseInt(ultimosComprobantes[1].numero) + 1
+    }
+
+    const resultadoCae = await solicitarCae(
+      afipToken, 
+      (monto / 100.0).toFixed(2), 
+      ultimoComprobante(),
+      nroDocumento(), 
+      tipoFactura(), 
+      tipoDocumento(), 
+      res,
+      next
+    )
+
+    console.log(resultadoCae)
+
+    t.commit();
+    return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
 
   } catch(err) {
 
