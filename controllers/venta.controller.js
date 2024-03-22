@@ -10,10 +10,8 @@ const { stringify } = require('uuid')
 const LineaDeArticulo = require('../models/LineaDeArticulo')
 const { Op } = require('sequelize')
 
-const { solicitarAutorizacion, solicitarUltimosComprobantes, solicitarCae } = require('../controllers/afip.controller.js')
-const { now } = require('moment')
-const { cli } = require('winston/lib/winston/config/index.js')
-const sequelize = db.sequelize
+const { solicitarAutorizacion, solicitarUltimosComprobantes, solicitarCae, emitirComprobanteAfip } = require('../services/afip.service.js')
+const { solicitarTokenDeAutorizacion, realizarPagoTarjeta } = require('../services/tarjeta.service.js')
 
 
 const createVenta = async (req, res, next) => {
@@ -421,8 +419,6 @@ const realizarVenta = async(req, res, next) => {
 
     // Cliente
 
-    console.log(clienteCuit)
-
     const cliente = await db.Clientes.findOne({
       where: { CUIT: {
         [Op.eq]: BigInt(clienteCuit)
@@ -474,188 +470,47 @@ const realizarVenta = async(req, res, next) => {
 
       // Construir el cuerpo de la solicitud a la siguiente dirección
 
+
       const dni = clienteCuit.substring(2, clienteCuit.lenght)
 
-      const tokensRequestBody = {
-        card_number: tarjeta.numero,
-        card_expiration_month: tarjeta.mesVencimiento,
-        card_expiration_year: tarjeta.anioVencimiento,
-        security_code: tarjeta.ccv,
-        card_holder_name: tarjeta.titular,
-        card_holder_identification: {
-          type: "dni",
-          number: dni
-        }
-      };
+      const paymentResponse = await realizarPagoTarjeta(tarjeta, dni, monto, t)
 
-      // Definir los encabezados personalizados
-      const tokensHeaders = {
-        "Content-Type": "application/json",
-        "apikey": "b192e4cb99564b84bf5db5550112adea",
-        "Cache-Control": "no-cache"
-      };
-
-      // Realizar la solicitud a la siguiente dirección
-      const tokensResponse = await fetch("https://developers.decidir.com/api/v2/tokens", {
-        method: "POST",
-        headers: tokensHeaders,
-        body: JSON.stringify(tokensRequestBody)
-      })
-
-      const preAuthResponse = await tokensResponse.json();
-
-      if (!tokensResponse.ok) {
-        // Si la solicitud falla, enviar el estado de error y el mensaje
-        await t.rollback();
-        return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
-      }
-
-      const token = preAuthResponse.id;
-      const bin = preAuthResponse.bin;
-
-      const ultimoPago = await db.PagosTarjetas.findOne({
-        order: [['createdAt', 'DESC']] // Orden descendente por la columna createdAt
-      }, { transaction: t });
-
-      let site_transaction
-
-      if(!ultimoPago){
-        site_transaction = Math.floor(Math.random() * 10000) + 1
-      }else{
-        site_transaction = ultimoPago.site_transaction_id + 1
-      }
-
-      // Construir el cuerpo de la solicitud a la siguiente dirección
-      const requestBody = {
-        site_transaction_id: String(site_transaction),
-        payment_method_id: 1,
-        token: token,
-        bin: bin,
-        amount: parseInt(monto), // Convertir amount a número
-        currency: "ARS",
-        installments: 1,
-        description: "",
-        payment_type: "single",
-        establishment_name: "single",
-        sub_payments: [{
-          site_id: "",
-          amount: parseInt(monto), // Convertir amount a número
-          installments: null
-        }]
-      };
-
-      // Definir los encabezados personalizados
-      const headers = {
-        "Content-Type": "application/json",
-        "apikey": "566f2c897b5e4bfaa0ec2452f5d67f13",
-        "Cache-Control": "no-cache"
-      };
-
-      // Realizar la solicitud a la siguiente dirección
-      const response = await fetch("https://developers.decidir.com/api/v2/payments", {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(requestBody)
-      });
-
-      const paymentResponse = await(response.json())
-
-      // Verificar si la solicitud fue exitosa
-      if (response.ok) {
-                
-        const pago = await db.PagosTarjetas.create({ 
-          id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
-          amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
-          { transaction: t }
-        );
-        
-        await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
-  
-      } else {
-
-        // Si la solicitud falla, enviar el estado de error y el mensaje
-        await t.rollback();
-        return res.status(404).json(makeErrorResponse(['No se pudo procesar el pago.']));
-      }
-
+      const pago = await db.PagosTarjetas.create({ 
+        id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
+        amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
+        { transaction: t }
+      );
+      
+      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
     }
+
     // TODO: Acá toca comunciarse con el servicio de afip para la emisión de comprobantes
 
-    const afipToken = await solicitarAutorizacion(next);
+    const { cae, nroComprobante, tipoComprobante, estado} = await emitirComprobanteAfip(monto, cliente)
 
-    const ultimosComprobantes = await solicitarUltimosComprobantes(afipToken, next);
-    
-    const clienteCondicionTributaria = await db.CondicionesTributarias.findByPk(cliente.condicionTributariaId)
-
-    const tipoDocumento = () => {
-      if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") return "ConsumidorFinal"
-      else return "Cuit"
-    }
-
-    const nroDocumento = () => {
-      if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") return 0
-      else return cliente.CUIT
-    }
-
-    const tipoFactura = () => {
-      if(clienteCondicionTributaria == "RESPONSABLE INSCRIPTO" || clienteCondicionTributaria == "MONOTRIBUTISTA") return "FacturaA"
-      else return "FacturaB"
-    }
-
-    const ultimoComprobante = () => {
-      if (tipoFactura == "FacturaA") return parseInt(ultimosComprobantes[0].numero) + 1
-      else return parseInt(ultimosComprobantes[1].numero) + 1
-    }
-
-    const resultadoCae = await solicitarCae(
-      afipToken, 
-      (monto / 100.0).toFixed(2), 
-      ultimoComprobante(),
-      nroDocumento(), 
-      tipoFactura(), 
-      tipoDocumento(), 
-      res,
-      next
-    )
-
-    console.log(resultadoCae)
-
-    let tipoComprobanteId
-
-    const tipoComprobante = await db.TipoComprobantes.findOne({descripcion: tipoFactura})
-
-    if (!tipoComprobante) {
-      const createTipoComprobante = await db.TipoComprobantes.create({descripcion: tipoFactura})
-
-      tipoComprobanteId = createTipoComprobante.id
-    } else {
-      tipoComprobanteId = tipoComprobante.id
-    }
+    const tipoComprobanteId = await db.TipoComprobantes.findOne({descripcion: tipoComprobante})
 
     await db.Comprobantes.create(
       {
-        cae: resultadoCae.cae,
-        numero: resultadoCae.nroComprobante,
-        estado: resultadoCae.estado,
-        tipoId: tipoComprobanteId
+        cae: cae,
+        numero: nroComprobante,
+        estado: estado,
+        tipoId: tipoComprobanteId.id
       },
       { transaction: t }
     )
 
-    await createVenta.update({ nroComprobante: resultadoCae.cae }, { transaction: t })
+    await createVenta.update({ nroComprobante: cae }, { transaction: t })
 
     t.commit();
-    return res.status(200).json(makeSuccessResponse(['Venta realizada con exito']));
+    return res.status(200).json(makeSuccessResponse('Venta realizada con exito'));
+
 
   } catch(err) {
 
-      console.error(err);
-
       await t.rollback();
 
-      next(err);
-
-      return res.status(404).json(makeErrorResponse(['No se pudo realizar la venta.']));
+      return await res.status(404).json(makeErrorResponse(err.message));
   }
 }
 

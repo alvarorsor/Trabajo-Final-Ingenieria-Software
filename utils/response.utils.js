@@ -1,9 +1,9 @@
 const makeSuccessResponse = (data) => {
-    return { content: data, error: [] }
+    return { content: data }
 }
 
-const makeErrorResponse = (errors) => {
-    return { content: [], errors }
+const makeErrorResponse = (error) => {
+    return { message: error[0] }
 }
 
 module.exports = {

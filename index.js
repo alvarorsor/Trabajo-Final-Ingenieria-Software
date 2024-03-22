@@ -24,9 +24,6 @@ const passport = require('passport');
 const { localStrategy, serializeUser, deserializeUser} = require('./middlewares/passport.middlewares');
 require('dotenv').config()
 
-//
-const { solicitarAutorizacion } = require('./controllers/afip.controller.js')
-
 const app = express();
 app.use(express.json({ limit: '50mb' }));
 
@@ -86,5 +83,3 @@ db.sequelize.authenticate()
             console.log(err)
             console.log("no se pudo conectar a la base de datos")
         })
-
-solicitarAutorizacion

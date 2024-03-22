@@ -157,11 +157,13 @@ const getStockByBranch = async (req, res, next) => {
             }
         )
 
-        if(!stock){
+        const returnStock = stock[0] // Esto es por que la query anterior devuelve un array con la respuesta repetida. Solo nos interesa el primero
+
+        if(returnStock.length == 0){
             return res.status(404).json(makeErrorResponse([`Stock de la sucursal ${branchId} no encontrado.`]))
         }
 
-        res.json(makeSuccessResponse(stock[0]))
+        res.json(makeSuccessResponse(returnStock))
 
     } catch (err) {
        next(err)
