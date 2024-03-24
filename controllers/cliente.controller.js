@@ -3,6 +3,7 @@ const sequelize = db.sequelize
 const apicache = require('apicache')
 const {makeSuccessResponse} = require('../utils/response.utils')
 const {makeErrorResponse} = require('../utils/response.utils')
+const { cli } = require('winston/lib/winston/config')
 
 
 
@@ -135,18 +136,23 @@ const getClienteByCUIT = async (req, res, next) => {
         const cliente = await sequelize.query(
             'SELECT clientes.id as id, nombre, apellido, domicilio, CUIT, condicionTributariaId, ct.descripcion as condicionTributaria ' +
             'FROM clientes JOIN condicionesTributarias as ct ON ct.id = clientes.condicionTributariaId ' +
-            'WHERE clientes.CUIT = :cuit',
+            'WHERE clientes.CUIT = :cuit LIMIT 1',
             {
               replacements: { cuit: cuit }
             }
         )
 
-    if(!cliente){
+        const returnCliente = cliente[0][0] // Esto es por que la query anterior devuelve un array con la respuesta repetida. 
+                                            //Solo nos interesa el primer elemente del primer array.
+
+        console.log(returnCliente)
+
+    if(!returnCliente){
         return res.status(404).json(makeErrorResponse([`Cliente con CUIT ${cuit} no encontrado.`]))
     }
 
 
-    res.json(makeSuccessResponse(cliente[0]))
+    res.json(makeSuccessResponse(returnCliente))
 
 
     } catch (err){

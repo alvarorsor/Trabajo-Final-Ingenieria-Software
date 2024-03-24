@@ -140,7 +140,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (6,'Juan','López','Calle 123',12345678901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(7,'María','García','Avenida 456',98765432109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(8,'Pedro','Rodríguez','Plaza 789',13579246803,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(9,'Ana','Martínez','Ruta 321',24681357904,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(10,'Luis','Pérez','Calle 987',36985214706,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(11,'Laura','Sánchez','Avenida 654',25814736901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(12,'Carlos','Fernández','Plaza 987',74185296307,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(13,'Marta','López','Ruta 654',96325874109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(14,'José','Gómez','Calle 741',14796325803,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(15,'Silvia','Torres','Avenida 852',85274196305,'2024-03-17 15:17:25','2024-03-17 15:17:25',1);
+INSERT INTO `clientes` VALUES (1,'','','',99999999999,'2024-03-21 10:53:30','2024-03-21 10:53:30',5),(6,'Juan','López','Calle 123',12345678901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(7,'María','García','Avenida 456',98765432109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(8,'Pedro','Rodríguez','Plaza 789',13579246803,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(9,'Ana','Martínez','Ruta 321',24681357904,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(10,'Luis','Pérez','Calle 987',36985214706,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(11,'Laura','Sánchez','Avenida 654',25814736901,'2024-03-17 15:17:25','2024-03-17 15:17:25',1),(12,'Carlos','Fernández','Plaza 987',74185296307,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(13,'Marta','López','Ruta 654',96325874109,'2024-03-17 15:17:25','2024-03-17 15:17:25',2),(14,'José','Gómez','Calle 741',14796325803,'2024-03-17 15:17:25','2024-03-17 15:17:25',3),(15,'Silvia','Torres','Avenida 852',85274196305,'2024-03-17 15:17:25','2024-03-17 15:17:25',1);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,6 +169,36 @@ LOCK TABLES `colores` WRITE;
 /*!40000 ALTER TABLE `colores` DISABLE KEYS */;
 INSERT INTO `colores` VALUES (1,'Rojo','2024-03-15 11:18:47','2024-03-15 11:18:47'),(2,'Azul','2024-03-15 11:18:47','2024-03-15 11:18:47'),(3,'Verde','2024-03-15 11:18:47','2024-03-15 11:18:47'),(4,'Negro','2024-03-15 11:18:47','2024-03-15 11:18:47'),(5,'Blanco','2024-03-15 11:18:47','2024-03-15 11:18:47');
 /*!40000 ALTER TABLE `colores` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comprobantes`
+--
+
+DROP TABLE IF EXISTS `comprobantes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `comprobantes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cae` varchar(255) DEFAULT NULL,
+  `numero` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `tipoId` int NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tipoId` (`tipoId`),
+  CONSTRAINT `comprobantes_ibfk_2` FOREIGN KEY (`tipoId`) REFERENCES `tipocomprobantes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comprobantes`
+--
+
+LOCK TABLES `comprobantes` WRITE;
+/*!40000 ALTER TABLE `comprobantes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comprobantes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -256,21 +286,15 @@ CREATE TABLE `lineasdearticulos` (
   `tipo` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `articuloId` int NOT NULL,
-  `colorId` int NOT NULL,
-  `talleId` int NOT NULL,
   `ventaId` int DEFAULT NULL,
   `devolucionId` int DEFAULT NULL,
+  `stockId` int NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `lineasDeArticulos_articuloId_foreign_idx` (`articuloId`),
-  KEY `lineasDeArticulos_colorId_foreign_idx` (`colorId`),
-  KEY `lineasDeArticulos_talleId_foreign_idx` (`talleId`),
   KEY `lineasDeArticulos_ventaId_foreign_idx` (`ventaId`),
   KEY `lineasDeArticulos_devolucionId_foreign_idx` (`devolucionId`),
-  CONSTRAINT `lineasDeArticulos_articuloId_foreign_idx` FOREIGN KEY (`articuloId`) REFERENCES `articulos` (`id`),
-  CONSTRAINT `lineasDeArticulos_colorId_foreign_idx` FOREIGN KEY (`colorId`) REFERENCES `colores` (`id`),
+  KEY `lineasDeArticulos_stockId_foreign_idx` (`stockId`),
   CONSTRAINT `lineasDeArticulos_devolucionId_foreign_idx` FOREIGN KEY (`devolucionId`) REFERENCES `devoluciones` (`id`),
-  CONSTRAINT `lineasDeArticulos_talleId_foreign_idx` FOREIGN KEY (`talleId`) REFERENCES `talles` (`id`),
+  CONSTRAINT `lineasDeArticulos_stockId_foreign_idx` FOREIGN KEY (`stockId`) REFERENCES `stocks` (`id`),
   CONSTRAINT `lineasDeArticulos_ventaId_foreign_idx` FOREIGN KEY (`ventaId`) REFERENCES `ventas` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -416,7 +440,7 @@ CREATE TABLE `sequelizemeta` (
 
 LOCK TABLES `sequelizemeta` WRITE;
 /*!40000 ALTER TABLE `sequelizemeta` DISABLE KEYS */;
-INSERT INTO `sequelizemeta` VALUES ('20240123192836-create-articulos.js'),('20240123193133-create-marcas.js'),('20240123193249-create-categorias.js'),('20240123193359-add-foreign-keys-to-articulo.js'),('20240124161254-create-colores.js'),('20240124161406-create-talles.js'),('20240124161523-create-tipo-talles.js'),('20240124173127-add-foreing-key-to-talles.js'),('20240126173418-create-stocks.js'),('20240126173503-add-foreing-key-to-stocks.js'),('20240126175343-create-clientes.js'),('20240126175912-create-condiciones-tributarias.js'),('20240126180941-add-foreing-key-to-clientes.js'),('20240126183131-modificar-cuit-column-cliente.js'),('20240126202907-create-lineas-de-articulos.js'),('20240126203036-add-foreing-key-to-lineasDeVentas.js'),('20240126214815-create-ventas.js'),('20240127002809-add-foreing-key-to-ventas.js'),('20240127003153-create-pagos.js'),('20240127003308-add-foreing-key-to-ventas-pagos.js'),('20240127011923-add-foreing-key-to-ventas-2.js'),('20240127012636-change-column-cliente-pago-in-ventas.js'),('20240127021328-change-column-total-estado-ventas.js'),('20240127152259-add-foreing-key-to-lineaDeArticulos-ventas.js'),('20240128181307-create-usuarios.js'),('20240201173022-add-colums-to-users.js'),('20240201173334-add-colums-to-users-2.js'),('20240202040749-create-devoluciones.js'),('20240202041311-add-foreing-ket-to-devoluciones.js'),('20240202041544-add-column-to-devoluciones-lineasdearticulos.js'),('20240202214146-add-column-to-devolucion-defaultvalue.js'),('20240202215233-add-column-to-ventas-defaultvalue.js'),('20240202220130-create-sucursales.js'),('20240202220308-add-column-to-stocks-sucursales.js'),('20240202225015-create-vendedores.js'),('20240202225429-create-puntos-de-venta.js'),('20240202225515-add-foreing-key-to-pdv-sucursales.js'),('20240202225804-add-foreing-key-to-vendedores-pdv.js'),('20240202230206-create-administrativos.js'),('20240202230937-add-foreing-key-to-usuarios-2.js'),('20240203010253-delete-column-role.js'),('20240203010446-delete-column-2.js'),('20240203011811-change-column-sucursales.js'),('20240206190548-change-column-in-usuarios-administrativo.js'),('20240206220725-add-colums-in-ventas.js'),('20240208145234-add-colums-in-devoluciones.js'),('20240212171657-create-pagos-tarjetas.js'),('20240212195547-change-foreingkey-pagostarjetas.js');
+INSERT INTO `sequelizemeta` VALUES ('20240123192836-create-articulos.js'),('20240123193133-create-marcas.js'),('20240123193249-create-categorias.js'),('20240123193359-add-foreign-keys-to-articulo.js'),('20240124161254-create-colores.js'),('20240124161406-create-talles.js'),('20240124161523-create-tipo-talles.js'),('20240124173127-add-foreing-key-to-talles.js'),('20240126173418-create-stocks.js'),('20240126173503-add-foreing-key-to-stocks.js'),('20240126175343-create-clientes.js'),('20240126175912-create-condiciones-tributarias.js'),('20240126180941-add-foreing-key-to-clientes.js'),('20240126183131-modificar-cuit-column-cliente.js'),('20240126202907-create-lineas-de-articulos.js'),('20240126203036-add-foreing-key-to-lineasDeVentas.js'),('20240126214815-create-ventas.js'),('20240127002809-add-foreing-key-to-ventas.js'),('20240127003153-create-pagos.js'),('20240127003308-add-foreing-key-to-ventas-pagos.js'),('20240127011923-add-foreing-key-to-ventas-2.js'),('20240127012636-change-column-cliente-pago-in-ventas.js'),('20240127021328-change-column-total-estado-ventas.js'),('20240127152259-add-foreing-key-to-lineaDeArticulos-ventas.js'),('20240128181307-create-usuarios.js'),('20240201173022-add-colums-to-users.js'),('20240201173334-add-colums-to-users-2.js'),('20240202040749-create-devoluciones.js'),('20240202041311-add-foreing-ket-to-devoluciones.js'),('20240202041544-add-column-to-devoluciones-lineasdearticulos.js'),('20240202214146-add-column-to-devolucion-defaultvalue.js'),('20240202215233-add-column-to-ventas-defaultvalue.js'),('20240202220130-create-sucursales.js'),('20240202220308-add-column-to-stocks-sucursales.js'),('20240202225015-create-vendedores.js'),('20240202225429-create-puntos-de-venta.js'),('20240202225515-add-foreing-key-to-pdv-sucursales.js'),('20240202225804-add-foreing-key-to-vendedores-pdv.js'),('20240202230206-create-administrativos.js'),('20240202230937-add-foreing-key-to-usuarios-2.js'),('20240203010253-delete-column-role.js'),('20240203010446-delete-column-2.js'),('20240203011811-change-column-sucursales.js'),('20240206190548-change-column-in-usuarios-administrativo.js'),('20240206220725-add-colums-in-ventas.js'),('20240208145234-add-colums-in-devoluciones.js'),('20240212171657-create-pagos-tarjetas.js'),('20240212195547-change-foreingkey-pagostarjetas.js'),('20240319144810-change-foreignkey-lineasdearticulos.js');
 /*!40000 ALTER TABLE `sequelizemeta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -515,6 +539,32 @@ INSERT INTO `talles` VALUES (1,'XS','2024-03-15 11:24:04','2024-03-15 11:24:04',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `tipocomprobantes`
+--
+
+DROP TABLE IF EXISTS `tipocomprobantes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tipocomprobantes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tipocomprobantes`
+--
+
+LOCK TABLES `tipocomprobantes` WRITE;
+/*!40000 ALTER TABLE `tipocomprobantes` DISABLE KEYS */;
+INSERT INTO `tipocomprobantes` VALUES (1,'FacturaA','2024-03-21 18:43:23','2024-03-21 18:43:23'),(2,'FacturaB','2024-03-21 18:43:34','2024-03-21 18:43:34');
+/*!40000 ALTER TABLE `tipocomprobantes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tipotalles`
 --
 
@@ -527,7 +577,7 @@ CREATE TABLE `tipotalles` (
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -536,7 +586,6 @@ CREATE TABLE `tipotalles` (
 
 LOCK TABLES `tipotalles` WRITE;
 /*!40000 ALTER TABLE `tipotalles` DISABLE KEYS */;
-INSERT INTO `tipotalles` VALUES (1,'Tipo Talle 1','2024-03-15 11:18:47','2024-03-15 11:18:47');
 /*!40000 ALTER TABLE `tipotalles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -666,4 +715,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-17 15:21:50
+-- Dump completed on 2024-03-21 19:34:52
