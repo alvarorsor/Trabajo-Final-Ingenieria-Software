@@ -7,11 +7,10 @@ const mongoose = require('mongoose')
 const fetch = require('node-fetch')
 const express = require("express")
 const { stringify } = require('uuid')
-const LineaDeArticulo = require('../models/LineaDeArticulo')
-const { Op } = require('sequelize')
 
-const { solicitarAutorizacion, solicitarUltimosComprobantes, solicitarCae, emitirComprobanteAfip } = require('../services/afip.service.js')
-const { solicitarTokenDeAutorizacion, realizarPagoTarjeta } = require('../services/tarjeta.service.js')
+const { emitirComprobanteAfip } = require('../services/afip.service.js')
+const { realizarPagoTarjeta } = require('../services/tarjeta.service.js')
+const { postNewSale } = require('../services/database.service.js')
 
 
 const createVenta = async (req, res, next) => {
@@ -413,94 +412,21 @@ const realizarVenta = async(req, res, next) => {
 
   try{
 
-    // Crear venta en la base de datos
-
-    const createVenta = await db.Ventas.create({}, {transaction: t})
-
-    // Cliente
-
-    const cliente = await db.Clientes.findOne({
-      where: { CUIT: {
-        [Op.eq]: BigInt(clienteCuit)
-      }}
-    }, { transaction: t })
-
-    if (!cliente) {
-      // Crear un nuevo cliente con un CUIT 99999999999 (Cliente anonimo)
-      await db.Clientes.create({
-        CUIT: BigInt(99999999999),
-        nombre: "",
-        apellido: "",
-        domicilio: "",
-        condicionTributariaId: 5
-        // Otros campos del cliente
-      }, { transaction: t });
-    }
-
-    // Agregar lineas de venta a la base de datos y modificar stock
-
-    await Promise.all(lineasDeVenta.map(async (lineaDeVenta) => {
-
-      const stock = await db.Stocks.findByPk(lineaDeVenta.stockId, {transaction: t})
-      const articulo = await db.Articulos.findByPk(stock.articuloId, {transaction: t})
-
-      var lineaDeArticulo = new LineaDeArticulo({cantidad: lineaDeVenta.cantidad, articulo: articulo})
-
-      let subTotal =  lineaDeArticulo.calcularSubTotal()
-
-      await db.lineasDeArticulos.create(
-        { cantidad: lineaDeVenta.cantidad, stockId: lineaDeVenta.stockId, subTotal: subTotal, tipo: "VENTA", ventaId: createVenta.id }, 
-        { transaction: t }
-      )
-
-      await stock.update({ cantidad: stock.cantidad - lineaDeVenta.cantidad}, { transaction: t });
-    }));
-
-    //Si el tipo pago es en efectivo continuar la venta
-    if (tipoPago == "EFECTIVO") {
-
-      const pago = await db.Pagos.create({ monto: parseInt(monto), tipo: tipoPago }, { transaction: t });
-
-      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoId: pago.id, total: monto, clienteId: cliente.id}, { transaction: t });
-    }
-
-    // Si el tipo pago es tarjeta llamar al servicio externo de pago con tarjeta
+    // Si es pago con tarjeta se llama al servicio 'realizarPagoTarjeta'. Caso contrario continúa
+    let paymentResponse
 
     if (tipoPago == "TARJETA") {
-
-      // Construir el cuerpo de la solicitud a la siguiente dirección
-
-
       const dni = clienteCuit.substring(2, clienteCuit.lenght)
-
-      const paymentResponse = await realizarPagoTarjeta(tarjeta, dni, monto, t)
-
-      const pago = await db.PagosTarjetas.create({ 
-        id: paymentResponse.id, site_transaction_id: paymentResponse.site_transaction_id, card_brand: paymentResponse.card_brand, 
-        amount: paymentResponse.amount, currency: paymentResponse.currency, status: paymentResponse.status, date: paymentResponse.date },
-        { transaction: t }
-      );
-      
-      await createVenta.update({ fecha: new Date(), estado: 'FINALIZADA', pagoTarjetaId: pago.id, total: monto, clienteId: cliente.id }, { transaction: t });
+      paymentResponse = await realizarPagoTarjeta(tarjeta, dni, monto)
+    } else {
+      paymentResponse = null
     }
 
-    // TODO: Acá toca comunciarse con el servicio de afip para la emisión de comprobantes
+    // Emisión de comprobantes de AFIP
+    const comprobanteResponse = await emitirComprobanteAfip(monto, clienteCuit)
 
-    const { cae, nroComprobante, tipoComprobante, estado} = await emitirComprobanteAfip(monto, cliente)
-
-    const tipoComprobanteId = await db.TipoComprobantes.findOne({descripcion: tipoComprobante})
-
-    await db.Comprobantes.create(
-      {
-        cae: cae,
-        numero: nroComprobante,
-        estado: estado,
-        tipoId: tipoComprobanteId.id
-      },
-      { transaction: t }
-    )
-
-    await createVenta.update({ nroComprobante: cae }, { transaction: t })
+    // Se guarda la nueva venta en la base de datos
+    const nuevaVenta = await postNewSale( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t )
 
     t.commit();
     return res.status(200).json(makeSuccessResponse('Venta realizada con exito'));
@@ -509,8 +435,8 @@ const realizarVenta = async(req, res, next) => {
   } catch(err) {
 
       await t.rollback();
-
-      return await res.status(404).json(makeErrorResponse(err.message));
+      console.log(err)
+      return await res.status(404).json(makeErrorResponse([err.message]));
   }
 }
 
@@ -526,5 +452,4 @@ module.exports = {
     buscarVentaMasReciente,
     ingresarCliente,
     realizarVenta
-  
 }

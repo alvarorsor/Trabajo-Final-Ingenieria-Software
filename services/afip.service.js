@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const xml2js = require('xml2js');
 const db = require('../repositorio/models')
 const { format } = require('date-fns');
+const { Op } = require('sequelize')
 
 //------------------//
 
@@ -162,8 +163,12 @@ const solicitarCae = async (token, monto, nroComprobante, tipoComprobante, nroDo
 
 //------------------//
 
-const procesarDocumento = async (token, cliente) => {
+const procesarDocumento = async (token, clienteCuit) => {
   const comprobantes = await solicitarUltimosComprobantes(token)
+  
+  const cliente = await db.Clientes.findOne({
+    where: { CUIT: {[Op.eq]: BigInt(clienteCuit)}}
+  })
 
   const clienteCondicionTributaria = await db.CondicionesTributarias.findByPk(cliente.condicionTributariaId)
 
@@ -189,9 +194,9 @@ const procesarDocumento = async (token, cliente) => {
 
 //------------------//
 
-const emitirComprobanteAfip = async (monto, cliente) => {
+const emitirComprobanteAfip = async (monto, clienteCuit) => {
   const token = await solicitarAutorizacion()
-  const { nroComprobante, tipoComprobante, nroDocumento, tipoDocumento } = await procesarDocumento(token, cliente)
+  const { nroComprobante, tipoComprobante, nroDocumento, tipoDocumento } = await procesarDocumento(token, clienteCuit)
   return await solicitarCae(token, (monto / 100.0).toFixed(2), nroComprobante, tipoComprobante, nroDocumento, tipoDocumento)
 }
 
