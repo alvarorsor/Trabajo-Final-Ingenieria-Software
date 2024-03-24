@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "ae035834-b776-42e9-9a55-a7f74114f5d2",
+		"name": "afip ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24275282"
+	},
+	"item": [
+		{
+			"name": "solicitar ultimos comprobantes",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "SOAPACTION",
+						"value": "http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarAutorizacion",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ist=\"http://ISTP1.Service.Contracts.Service\" xmlns:sge=\"http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data\">\r\n<soapenv:Header/>\r\n<soapenv:Body>\r\n<ist:SolicitarAutorizacion>\r\n<ist:codigo>A32747FF-FF5A-4007-BBEC-1BDC54C24DCB</ist:codigo>\r\n</ist:SolicitarAutorizacion>\r\n</soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://istp1service.azurewebsites.net/LoginService.svc?singleWsdl&codigo=A32747FF-FF5A-4007-BBEC-1BDC54C24DCB",
+					"protocol": "http",
+					"host": [
+						"istp1service",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"LoginService.svc"
+					],
+					"query": [
+						{
+							"key": "singleWsdl",
+							"value": null
+						},
+						{
+							"key": "codigo",
+							"value": "A32747FF-FF5A-4007-BBEC-1BDC54C24DCB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solicitar cae",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "SOAPACTION",
+						"value": "http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarCae",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ist=\"http://ISTP1.Service.Contracts.Service\" xmlns:sge=\"http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <ist:SolicitarCae>\r\n         <!--Optional:-->\r\n         <ist:token>A32747FF-FF5A-4007-BBEC-1BDC54C24DCBPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMzk0NzIyNzQwMSIgZ2VuX3RpbWU9IjE3MDgyODMwOTkiIGV4cF90aW1lPSIxNzA4MzI2MzU5Ii8+CiAgICA8b3BlcmF0aW9uIHR5cGU9ImxvZ2luIiB2YWx1ZT0iZ3JhbnRlZCI+CiAgICAgICAgPGxvZ2luIGVudGl0eT0iMzM2OTM0NTAyMzkiIHNlcnZpY2U9IndzZmUiIHVpZD0iU0VSSUFMTlVNQkVSPUNVSVQgMjAyNTk5MjcxNjIsIENOPXNnZWZqdjA1IiBhdXRobWV0aG9kPSJjbXMiIHJlZ21ldGhvZD0iMjIiPgogICAgICAgICAgICA8cmVsYXRpb25zPgogICAgICAgICAgICAgICAgPHJlbGF0aW9uIGtleT0iMjAyNTk5MjcxNjIiIHJlbHR5cGU9IjQiLz4KICAgICAgICAgICAgPC9yZWxhdGlvbnM+CiAgICAgICAgPC9sb2dpbj4KICAgIDwvb3BlcmF0aW9uPgo8L3Nzbz4K</ist:token>\r\n         <!--Optional:-->\r\n         <ist:solicitud>\r\n            <!--Optional:-->\r\n            <sge:Fecha>2024-02-18T19:30:52.1</sge:Fecha>\r\n            <!--Optional:-->\r\n            <sge:ImporteIva>200</sge:ImporteIva>\r\n            <!--Optional:-->\r\n            <sge:ImporteNeto>300</sge:ImporteNeto>\r\n            <!--Optional:-->\r\n            <sge:ImporteTotal>500</sge:ImporteTotal>\r\n            <!--Optional:-->\r\n            <sge:Numero>78</sge:Numero>\r\n            <!--Optional:-->\r\n            <sge:NumeroDocumento>12345678</sge:NumeroDocumento>\r\n            <!--Optional:-->\r\n            <sge:TipoComprobante>FacturaB</sge:TipoComprobante>\r\n            <!--Optional:-->\r\n            <sge:TipoDocumento>Dni</sge:TipoDocumento>\r\n         </ist:solicitud>\r\n      </ist:SolicitarCae>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://istp1service.azurewebsites.net/LoginService.svc?token=A32747FF-FF5A-4007-BBEC-1BDC54C24DCBPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMTkwMjYxNDg0MSIgZ2VuX3RpbWU9IjE3MDc5MjUyNzIiIGV4cF90aW1lPSIxNzA3OTY4NTMyIi8+CiAgICA8b3BlcmF0aW9uIHR5cGU9ImxvZ2luIiB2YWx1ZT0iZ3JhbnRlZCI+CiAgICAgICAgPGxvZ2luIGVudGl0eT0iMzM2OTM0NTAyMzkiIHNlcnZpY2U9IndzZmUiIHVpZD0iU0VSSUFMTlVNQkVSPUNVSVQgMjAyNTk5MjcxNjIsIENOPXNnZWZqdjA1IiBhdXRobWV0aG9kPSJjbXMiIHJlZ21ldGhvZD0iMjIiPgogICAgICAgICAgICA8cmVsYXRpb25zPgogICAgICAgICAgICAgICAgPHJlbGF0aW9uIGtleT0iMjAyNTk5MjcxNjIiIHJlbHR5cGU9IjQiLz4KICAgICAgICAgICAgPC9yZWxhdGlvbnM+CiAgICAgICAgPC9sb2dpbj4KICAgIDwvb3BlcmF0aW9uPgo8L3Nzbz4K",
+					"protocol": "http",
+					"host": [
+						"istp1service",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"LoginService.svc"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "A32747FF-FF5A-4007-BBEC-1BDC54C24DCBPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiIHVuaXF1ZV9pZD0iMTkwMjYxNDg0MSIgZ2VuX3RpbWU9IjE3MDc5MjUyNzIiIGV4cF90aW1lPSIxNzA3OTY4NTMyIi8+CiAgICA8b3BlcmF0aW9uIHR5cGU9ImxvZ2luIiB2YWx1ZT0iZ3JhbnRlZCI+CiAgICAgICAgPGxvZ2luIGVudGl0eT0iMzM2OTM0NTAyMzkiIHNlcnZpY2U9IndzZmUiIHVpZD0iU0VSSUFMTlVNQkVSPUNVSVQgMjAyNTk5MjcxNjIsIENOPXNnZWZqdjA1IiBhdXRobWV0aG9kPSJjbXMiIHJlZ21ldGhvZD0iMjIiPgogICAgICAgICAgICA8cmVsYXRpb25zPgogICAgICAgICAgICAgICAgPHJlbGF0aW9uIGtleT0iMjAyNTk5MjcxNjIiIHJlbHR5cGU9IjQiLz4KICAgICAgICAgICAgPC9yZWxhdGlvbnM+CiAgICAgICAgPC9sb2dpbj4KICAgIDwvb3BlcmF0aW9uPgo8L3Nzbz4K"
+						}
+					]
+				},
+				"description": "solicitarCae"
+			},
+			"response": []
+		},
+		{
+			"name": "solicitar token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "SOAPACTION",
+						"value": "http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarAutorizacion",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ist=\"http://ISTP1.Service.Contracts.Service\" xmlns:sge=\"http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data\">\r\n<soapenv:Header/>\r\n<soapenv:Body>\r\n<ist:SolicitarAutorizacion>\r\n<ist:codigo>A32747FF-FF5A-4007-BBEC-1BDC54C24DCB</ist:codigo>\r\n</ist:SolicitarAutorizacion>\r\n</soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://istp1service.azurewebsites.net/LoginService.svc?singleWsdl&codigo=A32747FF-FF5A-4007-BBEC-1BDC54C24DCB",
+					"protocol": "http",
+					"host": [
+						"istp1service",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"LoginService.svc"
+					],
+					"query": [
+						{
+							"key": "singleWsdl",
+							"value": null
+						},
+						{
+							"key": "codigo",
+							"value": "A32747FF-FF5A-4007-BBEC-1BDC54C24DCB"
+						}
+					]
+				},
+				"description": "solicitar token"
+			},
+			"response": []
+		}
+	]
+}
