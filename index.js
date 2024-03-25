@@ -24,6 +24,8 @@ const passport = require('passport');
 const { localStrategy, serializeUser, deserializeUser} = require('./middlewares/passport.middlewares');
 require('dotenv').config()
 
+const cors = require('cors');
+
 const app = express();
 app.use(express.json({ limit: '50mb' }));
 
@@ -35,6 +37,9 @@ app.set('PORT', process.env.SERVER_PORT || 3000)
 
 //app.use(express.json())
 
+app.use(cors({
+    credentials: true
+  }));
 
 app.use(express.urlencoded())
 

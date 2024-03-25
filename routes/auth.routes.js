@@ -2,6 +2,7 @@ const authRouter = require('express').Router()
 const passport = require('passport');
 const db = require('../repositorio/models');
 const { isAdministrador } = require('../middlewares/auth.middlewares');
+const { makeSuccessResponse, makeErrorResponse } = require('../utils/response.utils');
 
 authRouter.get('/needs-login', (req, res) => {
     res.json({ data: null, error: 'Necesita iniciar sesion' })
@@ -80,15 +81,19 @@ authRouter.post('/local/registrar-vendedor',isAdministrador, async (req, res) =>
 })
 
 
-authRouter.get('/local/failure', (req, res) => res.json({ data: null, error: 'El inicio de sesion fallo - LOCAL' }));
-authRouter.get('/local/success', (req, res) => res.json({ data: null, error: 'El inicio de sesion fue exitoso - LOCAL' }));
+authRouter.get('/local/failure', (req, res) => res.status(401).json(makeErrorResponse(['El inicio de sesion fallo - LOCAL'])));
 
-authRouter.post('/local/login', passport.authenticate('local', {
-    successRedirect: '/api/auth/local/success',
-    failureRedirect: '/api/auth/local/failure'
-}));
-
-
+authRouter.post('/local/login', (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+      if (err || !user) {
+        // Autenticación fallida, redireccionar a /api/auth/local/failure
+        return res.redirect('/api/auth/local/failure');
+      }
+  
+      // Autenticación exitosa, devolver la respuesta con la información del usuario
+      return res.status(200).json(makeSuccessResponse(user));
+    })(req, res, next);
+  });
 
 // Close Session
 authRouter.get('/logout', (req, res) => {
