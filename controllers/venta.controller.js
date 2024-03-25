@@ -10,7 +10,7 @@ const { stringify } = require('uuid')
 
 const { emitirComprobanteAfip } = require('../services/afip.service.js')
 const { realizarPagoTarjeta } = require('../services/tarjeta.service.js')
-const { postNewSale } = require('../services/database.service.js')
+const { postNewSale, getDatosClientesParaEmisionDeComprobante, getLineasDeVentaParaEmisionDeComprobante } = require('../services/database.service.js')
 
 
 const createVenta = async (req, res, next) => {
@@ -425,12 +425,42 @@ const realizarVenta = async(req, res, next) => {
     // Emisión de comprobantes de AFIP
     const comprobanteResponse = await emitirComprobanteAfip(monto, clienteCuit)
 
+    //console.log(comprobanteResponse)
+
     // Se guarda la nueva venta en la base de datos
     const nuevaVenta = await postNewSale( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t )
 
-    t.commit();
-    return res.status(200).json(makeSuccessResponse('Venta realizada con exito'));
+    const datosCliente = await getDatosClientesParaEmisionDeComprobante(clienteCuit)
+    //console.log(datosCliente)
 
+    
+
+    const datosLineasDeVenta = await getLineasDeVentaParaEmisionDeComprobante(nuevaVenta.id, t)
+    //console.log(datosLineasDeVenta)
+
+    const datosComprobante = {
+      lineasDeVenta: datosLineasDeVenta,
+      clienteCuit: clienteCuit,
+      clienteCondicionTributaria: 'CONSUMIDOR FINAL', // No se pueden generar bien los caes nominales. Se usaran todas facturas tipo B a consumidor final por el momento
+      tipoComprobante: comprobanteResponse.tipoComprobante,
+      nroCae: comprobanteResponse.cae,
+      fechaVencimientoCae: comprobanteResponse.fechaDeVencimiento,
+      totalNetoGravado: comprobanteResponse.importeNeto,
+      totalIva: comprobanteResponse.importeIva,
+      totalVenta: comprobanteResponse.importeTotal,
+      fechaDeEmision: nuevaVenta.updatedAt
+    }
+
+    //await t.rollback()
+
+    t.commit()
+
+    console.log(datosComprobante)
+    
+
+    //console.log(nuevaVenta)
+
+    return res.status(200).json(makeSuccessResponse(datosComprobante));
 
   } catch(err) {
 

@@ -102,9 +102,14 @@ const solicitarCae = async (token, monto, nroComprobante, tipoComprobante, nroDo
     soapHeaders.append('Content-Type', 'text/xml');
     soapHeaders.append('SOAPACTION', 'http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarCae');
 
-    const importeIva = (monto - monto / 1.21).toFixed(2)
-    const importeNeto = (monto / 1.21).toFixed(2) 
-    const importeTotal = parseFloat(monto).toFixed(2)
+    const importeNeto = (monto / 1.21 / 100).toFixed(2) 
+    const importeIva = (monto / 100 - importeNeto).toFixed(2) 
+    const importeTotal = (parseFloat(importeIva) + parseFloat(importeNeto)).toFixed(2)
+
+    //console.log(monto)
+    //console.log(importeIva)
+    //console.log(importeNeto)
+    //console.log(importeTotal)
 
     const soapEnvelope = `
       <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ist="http://ISTP1.Service.Contracts.Service" xmlns:sge="http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data">
@@ -135,6 +140,8 @@ const solicitarCae = async (token, monto, nroComprobante, tipoComprobante, nroDo
   
     const response = await fetch(soapUrl, soapOptions);
     const responseData = await response.text();
+
+    //console.log(responseData)
     
     const parser = new xml2js.Parser();
     const result = await parser.parseStringPromise(responseData);
@@ -146,13 +153,17 @@ const solicitarCae = async (token, monto, nroComprobante, tipoComprobante, nroDo
     const error = result['s:Envelope']['s:Body'][0]['SolicitarCaeResponse'][0]['SolicitarCaeResult'][0]['a:Error'][0];
 
     if (typeof error == 'string') {
-      throw new Error(error);
+      throw Error(error);
+    }
+
+    if (estado == "Rechazada") {
+      throw Error('La solicitud de CAE fue rechazada')
     }
 
     return {
-      importeIva: importeIva,            
-      importeNeto: importeNeto,
-      importeTotal: importeTotal,
+      importeIva: String(importeIva * 100),            
+      importeNeto: String(importeNeto * 100),
+      importeTotal: String(importeTotal * 100),
       nroComprobante: nroComprobante,
       cae: cae, 
       estado: estado, 
@@ -172,16 +183,18 @@ const procesarDocumento = async (token, clienteCuit) => {
 
   const clienteCondicionTributaria = await db.CondicionesTributarias.findByPk(cliente.condicionTributariaId)
 
-  let tipoDocumento
-  let nroDocumento
+  //let tipoDocumento
+  const tipoDocumento = "ConsumidorFinal" //El sistema de AFIP rechaza si el cuit no está registrado en su base de datos. Para salvar eso haremos siempre a consumidor final
+  //let nroDocumento
+  const nroDocumento = 0
   let tipoComprobante
   let nroComprobante
 
-  if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") tipoDocumento = "ConsumidorFinal"
-  else tipoDocumento = "Cuit"
+  //if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") tipoDocumento = "ConsumidorFinal"
+  //else tipoDocumento = "Cuit"
 
-  if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") nroDocumento = 0
-  else nroDocumento = cliente.CUIT
+  //if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") nroDocumento = 0
+  //else nroDocumento = cliente.CUIT
 
   if(clienteCondicionTributaria == "RESPONSABLE INSCRIPTO" || clienteCondicionTributaria == "MONOTRIBUTISTA") tipoComprobante = "FacturaA"
   else tipoComprobante = "FacturaB"

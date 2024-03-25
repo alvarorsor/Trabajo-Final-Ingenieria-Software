@@ -19,13 +19,17 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'clienteId',
         as: 'cliente' // Puedes cambiar este alias según tu preferencia
       });
+
+      Ventas.belongsTo(models.Comprobantes, {
+        foreignKey: 'comprobanteId',
+        as: 'comprobante' // Puedes cambiar este alias según tu preferencia
+      });
     }
   }
   Ventas.init({
     fecha: DataTypes.DATE,
     estado: DataTypes.STRING,
     total: DataTypes.DECIMAL,
-    tipoComprobante: DataTypes.STRING,
     clienteId: {
       type: DataTypes.INTEGER,
       allowNull: true, // Modificado para permitir valores nulos
@@ -38,8 +42,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: true, // Modificado para permitir valores nulos
     },
-    nroComprobante: {
-      type: DataTypes.STRING,
+    comprobanteId: {
+      type: DataTypes.INTEGER,
       allowNull: true, // Modificado para permitir valores nulos
     },
     vendedorId: {
@@ -53,10 +57,6 @@ module.exports = (sequelize, DataTypes) => {
     PDVId: {
       type: DataTypes.INTEGER,
       allowNull: true, // Modificado para permitir valores nulos
-    },
-    condicionEmpresa: {
-      type: DataTypes.STRING,
-      defaulValue: "RESPONSABLE INSCRIPTO", // Modificado para permitir valores nulos
     },
   }, {
     sequelize,

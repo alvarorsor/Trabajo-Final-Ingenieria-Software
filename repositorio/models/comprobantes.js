@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Comprobantes.init({id: {
     type: DataTypes.INTEGER,
-    primaryKey: true
+    primaryKey: true,
+    autoIncrement: true
   },
   cae: {
     type: DataTypes.STRING
