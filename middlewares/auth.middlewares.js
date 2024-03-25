@@ -15,6 +15,7 @@ const isVendedor = (req, res, next) => {
 }
 
 const isAuthenthicated = (req, res, next) => {
+
     if (!req.isAuthenticated()) return res.json({ message: 'Inicia sesion' })
     
 

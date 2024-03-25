@@ -425,10 +425,8 @@ const realizarVenta = async(req, res, next) => {
     // Emisión de comprobantes de AFIP
     const comprobanteResponse = await emitirComprobanteAfip(monto, clienteCuit)
 
-    //console.log(comprobanteResponse)
-
     // Se guarda la nueva venta en la base de datos
-    const nuevaVenta = await postNewSale( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t )
+    const nuevaVenta = await postNewSale( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t, req.user.vendedorId)
 
     const datosCliente = await getDatosClientesParaEmisionDeComprobante(clienteCuit)
     //console.log(datosCliente)
@@ -438,7 +436,20 @@ const realizarVenta = async(req, res, next) => {
     const datosLineasDeVenta = await getLineasDeVentaParaEmisionDeComprobante(nuevaVenta.id, t)
     //console.log(datosLineasDeVenta)
 
+    const vendedor = await db.Vendedores.findByPk(req.user.vendedorId)
+    const nombreVendedor = vendedor.nombre + ' ' + vendedor.apellido
+
+    const pdv = await db.PuntosDeVenta.findByPk(vendedor.puntoDeVentaId)
+    const sucursal = await db.Sucursales.findByPk(pdv.sucursalId)
+
     const datosComprobante = {
+      razonSocialEmpresa: '20123456789', // tiene que venir de la db
+      domicilioComercial: sucursal.direccion,
+      empresaCondicionTributaria: 'RESPONSABLE INSCRIPTO', // tiene que venir de la db
+      puntoDeVenta: pdv.numero,
+      nombreVendedor: nombreVendedor,
+      numeroVenta: comprobanteResponse.nroComprobante,
+      tipoPago: tipoPago,
       lineasDeVenta: datosLineasDeVenta,
       clienteCuit: clienteCuit,
       clienteCondicionTributaria: 'CONSUMIDOR FINAL', // No se pueden generar bien los caes nominales. Se usaran todas facturas tipo B a consumidor final por el momento

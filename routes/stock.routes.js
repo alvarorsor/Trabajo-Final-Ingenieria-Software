@@ -1,5 +1,5 @@
 const stockRouter = require('express').Router()
-const { getAllStocks, createStock, getStockById, patchStockById, deleteStockById, getStockByBranch } = require('../controllers/stock.controller')
+const { getAllStocks, createStock, getStockById, patchStockById, deleteStockById, getStockBySalesmenId } = require('../controllers/stock.controller')
 const { isAdministrador, isAuthenthicated } = require('../middlewares/auth.middlewares')
 const { errorMiddleware, validateMongoId } = require('../middlewares/common.middleware')
 const {  validateStockData } = require('../middlewares/stock.middleware')
@@ -48,6 +48,6 @@ errorMiddleware
  errorMiddleware
   )
 
-stockRouter.get('/branch/:branchId', isAuthenthicated, getStockByBranch, errorMiddleware)
+stockRouter.get('/branch/:salesmanId', isAuthenthicated, getStockBySalesmenId, errorMiddleware)
 
 module.exports = stockRouter

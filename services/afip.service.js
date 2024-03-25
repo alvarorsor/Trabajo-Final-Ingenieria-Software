@@ -102,14 +102,14 @@ const solicitarCae = async (token, monto, nroComprobante, tipoComprobante, nroDo
     soapHeaders.append('Content-Type', 'text/xml');
     soapHeaders.append('SOAPACTION', 'http://ISTP1.Service.Contracts.Service/ILoginService/SolicitarCae');
 
-    const importeNeto = (monto / 1.21 / 100).toFixed(2) 
-    const importeIva = (monto / 100 - importeNeto).toFixed(2) 
+    const importeNeto = (Math.trunc(monto / 1.21) / 100).toFixed(2) 
+    const importeIva = (Math.trunc((monto / 100 - importeNeto) * 100) / 100).toFixed(2) 
     const importeTotal = (parseFloat(importeIva) + parseFloat(importeNeto)).toFixed(2)
 
-    //console.log(monto)
-    //console.log(importeIva)
-    //console.log(importeNeto)
-    //console.log(importeTotal)
+    console.log(monto)
+    console.log(importeIva)
+    console.log(importeNeto)
+    console.log(importeTotal)
 
     const soapEnvelope = `
       <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ist="http://ISTP1.Service.Contracts.Service" xmlns:sge="http://schemas.datacontract.org/2004/07/SGE.Service.Contracts.Data">

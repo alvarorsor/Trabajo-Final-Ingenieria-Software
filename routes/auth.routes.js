@@ -81,17 +81,23 @@ authRouter.post('/local/registrar-vendedor',isAdministrador, async (req, res) =>
 })
 
 
-authRouter.get('/local/failure', (req, res) => res.status(401).json(makeErrorResponse(['El inicio de sesion fallo - LOCAL'])));
-
 authRouter.post('/local/login', (req, res, next) => {
     passport.authenticate('local', (err, user, info) => {
       if (err || !user) {
-        // Autenticación fallida, redireccionar a /api/auth/local/failure
-        return res.redirect('/api/auth/local/failure');
+        // Autenticación fallida, responder con el error
+        return res.status(401).json(makeErrorResponse(['El inicio de sesión falló - LOCAL']));
       }
   
-      // Autenticación exitosa, devolver la respuesta con la información del usuario
-      return res.status(200).json(makeSuccessResponse(user));
+      // Autenticación exitosa, iniciar sesión utilizando req.login
+      req.login(user, (err) => {
+        if (err) {
+          // Error al iniciar sesión, responder con el error
+          return res.status(500).json(makeErrorResponse(['Error al iniciar sesión']));
+        }
+  
+        // Autenticación exitosa y sesión iniciada, responder con la información del usuario
+        return res.status(200).json(makeSuccessResponse(user, req.isAuthenticated()));
+      });
     })(req, res, next);
   });
 

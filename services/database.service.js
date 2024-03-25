@@ -2,6 +2,7 @@ const db = require('../repositorio/models')
 const sequelize = db.sequelize
 const LineaDeArticulo = require('../models/LineaDeArticulo')
 const { Op } = require('sequelize')
+const sucursalRouter = require('../routes/sucursal.routes')
 
 const getSiteTransaccionId = async () => {
     const ultimoPago = await db.PagosTarjetas.findOne({
@@ -15,16 +16,20 @@ const getSiteTransaccionId = async () => {
       }
     }
 
-const postNewSale = async( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t ) => {
+const postNewSale = async( tipoPago, lineasDeVenta, monto, clienteCuit, paymentResponse, comprobanteResponse, t, vendedorId ) => {
 
     const cliente = await db.Clientes.findOne({
         where: { CUIT: {[Op.eq]: BigInt(clienteCuit)}}
       })
+      
+      const salesman = await db.Vendedores.findByPk(vendedorId)
+      const pdv = await db.PuntosDeVenta.findByPk(salesman.puntoDeVentaId) 
+      const sucursal = await db.Sucursales.findByPk(pdv.sucursalId)
     
     // Crear venta en la base de datos
 
     const venta = await db.Ventas.create({
-        fecha: new Date(), estado: 'FINALIZADA', total: monto/100, clienteId: cliente.id
+        fecha: new Date(), estado: 'FINALIZADA', total: monto/100, clienteId: cliente.id, vendedorId: vendedorId, PDVId: pdv.id, sucursalId: sucursal.id
     }, {transaction: t})
 
     // Agregar lineas de venta a la base de datos y modificar stock

@@ -137,10 +137,14 @@ const deleteStockById = async (req, res, next) => {
     }
 }
 
-const getStockByBranch = async (req, res, next) => {
+const getStockBySalesmenId = async (req, res, next) => {
 
     try {
-        const branchId = req.params.branchId
+
+      console.log(req.params)
+        const salesman = await db.Vendedores.findByPk(req.params.salesmanId)
+        const pdv = await db.PuntosDeVenta.findByPk(salesman.puntoDeVentaId) 
+        const sucursal = await db.Sucursales.findByPk(pdv.sucursalId)
 
         const stock = await sequelize.query(
             'SELECT stocks.id, cantidad, colores.descripcion as color, talles.descripcion as talle, articulos.descripcion as articulo, ' +
@@ -153,20 +157,21 @@ const getStockByBranch = async (req, res, next) => {
             'JOIN categorias ON articulos.categoriaId = categorias.id ' +
             'WHERE stocks.sucursalId = :branchId ORDER BY stocks.articuloId, stocks.colorId, stocks.talleId',
             {
-              replacements: { branchId: branchId }
+              replacements: { branchId: sucursal.id }
             }
         )
 
         const returnStock = stock[0] // Esto es por que la query anterior devuelve un array con la respuesta repetida. Solo nos interesa el primero
 
         if(returnStock.length == 0){
-            return res.status(404).json(makeErrorResponse([`Stock de la sucursal ${branchId} no encontrado.`]))
+            return res.status(404).json(makeErrorResponse([`Stock de la sucursal ${branch.id} no encontrado.`]))
         }
 
         res.json(makeSuccessResponse(returnStock))
 
     } catch (err) {
-       next(err)
+      console.log(err)
+       //next(err)
     }
 
 }
@@ -178,5 +183,5 @@ module.exports = {
     getStockById,
     patchStockById,
     deleteStockById,
-    getStockByBranch
+    getStockBySalesmenId
 }
