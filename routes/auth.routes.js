@@ -106,13 +106,13 @@ authRouter.get('/logout', (req, res) => {
     if (req.session) {
         req.session.destroy(err => {
             if (err) {
-                res.json({ data: null, error: 'No se pudo cerrar la sesion' })
+                res.status(500).json(makeErrorResponse(['No se pudo cerrar la sesion']))
             } else {
-                res.json({ data: 'Cierre de sesion exitoso', error: null })
+                res.status(200).json(makeSuccessResponse('Cierre de sesion exitoso'))
             }
         });
     } else {
-        res.json({ data: null, error: 'No hay una sesion activa' })
+        res.status(500).json(makeErrorResponse(['No hay una sesion activa']))
     }
 })
 

@@ -8,7 +8,7 @@ const isAdministrador = (req, res, next) => {
 }
 
 const isVendedor = (req, res, next) => {
-    if (!req.isAuthenticated()) return res.json({ message: 'Inicia sesion' })
+    if (!req.isAuthenticated()) return res.status(401).json({ message: 'Inicia sesion' })
     if (req.user.vendedorId== null) return res.json({ message: 'URL PERMITIDA SOLO A VENDEDORES' })
 
     next()
@@ -16,7 +16,7 @@ const isVendedor = (req, res, next) => {
 
 const isAuthenthicated = (req, res, next) => {
 
-    if (!req.isAuthenticated()) return res.json({ message: 'Inicia sesion' })
+    if (!req.isAuthenticated()) return res.status(401).json({ message: 'Inicia sesion' })
     
 
     next()
