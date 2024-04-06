@@ -183,20 +183,22 @@ const procesarDocumento = async (token, clienteCuit) => {
 
   const clienteCondicionTributaria = await db.CondicionesTributarias.findByPk(cliente.condicionTributariaId)
 
-  //let tipoDocumento
-  const tipoDocumento = "ConsumidorFinal" //El sistema de AFIP rechaza si el cuit no está registrado en su base de datos. Para salvar eso haremos siempre a consumidor final
-  //let nroDocumento
-  const nroDocumento = 0
+  let tipoDocumento
+  //const tipoDocumento = "ConsumidorFinal" //El sistema de AFIP rechaza si el cuit no está registrado en su base de datos. Para salvar eso haremos siempre a consumidor final
+  let nroDocumento
+  //const nroDocumento = 0
   let tipoComprobante
   let nroComprobante
 
-  //if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") tipoDocumento = "ConsumidorFinal"
-  //else tipoDocumento = "Cuit"
+  if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") tipoDocumento = "ConsumidorFinal"
+  else tipoDocumento = "Cuit"
 
-  //if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") nroDocumento = 0
-  //else nroDocumento = cliente.CUIT
+  console.log(clienteCondicionTributaria)
 
-  if(clienteCondicionTributaria == "RESPONSABLE INSCRIPTO" || clienteCondicionTributaria == "MONOTRIBUTISTA") tipoComprobante = "FacturaA"
+  if(clienteCondicionTributaria.descripcion == "CONSUMIDOR FINAL") nroDocumento = 0
+  else nroDocumento = cliente.CUIT
+
+  if(clienteCondicionTributaria.descripcion == "RESPONSABLE INSCRIPTO" || clienteCondicionTributaria.descripcion == "MONOTRIBUTISTA") tipoComprobante = "FacturaA"
   else tipoComprobante = "FacturaB"
 
   if (tipoComprobante == "FacturaA") nroComprobante = parseInt(comprobantes[0].numero) + 1

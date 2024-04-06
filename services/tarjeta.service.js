@@ -77,19 +77,22 @@ const iniciarPagoTarjeta = async(token, monto, site_transaction, bin) => {
         body: JSON.stringify(requestBody)
     });
 
+    const jsonResponse = await response.json()
+
       // Verificar si la solicitud fue exitosa
     if (!response.ok) {
         // Si la solicitud falla, enviar el estado de error y el mensaje
         throw Error('No se pudo procesar el pago con tarjeta');
     }
 
-    return await response.json()
+    return jsonResponse
 }
 
 //------------------//
 
 const realizarPagoTarjeta = async(tarjeta, dni, monto) => {
     const site_transaction = await getSiteTransaccionId()
+    //console.log(site_transaction)
     const { id, bin } = await solicitarTokenPagoTarjeta(tarjeta, dni)
     return await iniciarPagoTarjeta(id, monto, site_transaction, bin)
 }

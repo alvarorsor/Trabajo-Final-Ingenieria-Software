@@ -38,7 +38,7 @@ app.set('PORT', process.env.SERVER_PORT || 3000)
 //app.use(express.json())
 
 app.use(cors({
-    credentials: true
+    //origin: 'http://127.0.0.1:5500'
   }));
 
 app.use(express.urlencoded())
@@ -46,7 +46,8 @@ app.use(express.urlencoded())
 app.use(session({
     secret: process.env.SESSION_SECRET ?? '',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    sameSite: 'none'
 }))
 
 app.use(passport.initialize())

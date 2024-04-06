@@ -82,7 +82,7 @@ authRouter.post('/local/registrar-vendedor',isAdministrador, async (req, res) =>
 
 
 authRouter.post('/local/login', (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, user) => {
       if (err || !user) {
         // Autenticación fallida, responder con el error
         return res.status(401).json(makeErrorResponse(['El inicio de sesión falló - LOCAL']));
@@ -115,6 +115,5 @@ authRouter.get('/logout', (req, res) => {
         res.status(500).json(makeErrorResponse(['No hay una sesion activa']))
     }
 })
-
 
 module.exports = authRouter

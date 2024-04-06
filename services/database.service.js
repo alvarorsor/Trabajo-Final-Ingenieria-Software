@@ -12,7 +12,8 @@ const getSiteTransaccionId = async () => {
       if(!ultimoPago){
         return Math.floor(Math.random() * 10000) + 1
       }else{
-        return ultimoPago.site_transaction_id + 1
+        return Math.floor(Math.random() * 10000) + 1
+        //return ultimoPago.site_transaction_id + 1
       }
     }
 
